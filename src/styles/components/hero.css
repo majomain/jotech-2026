@@ -1,0 +1,84 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 5vw 60px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(52px, 11vw, 180px);
+  line-height: 0.88;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  max-width: 13ch;
+}
+
+.hero h1 .line {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.04em;
+}
+
+.hero h1 .line b {
+  display: inline-block;
+  font-weight: inherit;
+  will-change: transform;
+}
+
+.hero h1 .it {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.hero h1 .thin {
+  font-weight: 300;
+}
+
+.hero-sub {
+  margin-top: 50px;
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  max-width: 900px;
+}
+
+.hero-sub p {
+  max-width: 32ch;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.hero-sub strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 5vw;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-cue i {
+  width: 7px;
+  height: 7px;
+  background: var(--accent2);
+  border-radius: 50%;
+  animation: bob 1.5s ease-in-out infinite;
+  font-style: normal;
+}

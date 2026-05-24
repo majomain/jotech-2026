@@ -1,0 +1,88 @@
+.services {
+  border-top: 2px solid var(--ink);
+}
+
+.svc {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 90px 1fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+  position: relative;
+  transition: padding-left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.svc:hover {
+  padding-left: 24px;
+}
+
+.svc::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.svc:hover::before {
+  transform: scaleY(1);
+}
+
+.svc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--ink-soft);
+  padding-top: 14px;
+  font-weight: 600;
+}
+
+.svc h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.svc h3 .it {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.svc p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.svc-tags {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.svc-tags span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 13px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  color: var(--ink-soft);
+  transition: 0.3s;
+}
+
+.svc:hover .svc-tags span {
+  border-color: var(--ink);
+  color: var(--ink);
+}

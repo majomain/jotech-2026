@@ -1,0 +1,35 @@
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metric {
+  padding: 54px 36px;
+  border-right: 2px solid var(--ink);
+}
+
+.metric:last-child {
+  border-right: none;
+}
+
+.metric .num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(50px, 7vw, 92px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.metric .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-top: 14px;
+  font-weight: 600;
+}

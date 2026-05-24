@@ -1,0 +1,54 @@
+.statement {
+  padding: 20vh 5vw;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.statement h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(38px, 7vw, 116px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 18ch;
+}
+
+.statement .ln {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.03em;
+}
+
+.statement .ln b {
+  display: inline-block;
+  font-weight: inherit;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.85s;
+}
+
+.statement.in .ln:nth-child(1) b {
+  transition-delay: 0.05s;
+}
+
+.statement.in .ln:nth-child(2) b {
+  transition-delay: 0.18s;
+}
+
+.statement.in .ln:nth-child(3) b {
+  transition-delay: 0.31s;
+}
+
+.statement.in .ln b {
+  transform: none;
+  opacity: 1;
+}
+
+.statement .it {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent2);
+}

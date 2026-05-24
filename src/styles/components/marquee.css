@@ -1,0 +1,33 @@
+.marquee {
+  padding: 26px 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.mtrack {
+  display: inline-block;
+  animation: scroll 26s linear infinite;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.mtrack span {
+  font-size: clamp(30px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding: 0 30px;
+}
+
+.mtrack .it {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent2);
+}
+
+.mtrack .st {
+  color: var(--accent);
+}

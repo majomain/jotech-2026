@@ -1,0 +1,43 @@
+@media (max-width: 820px) {
+  .nav-links {
+    gap: 16px;
+    font-size: 10px;
+  }
+
+  .hero-sub {
+    gap: 28px;
+  }
+
+  .svc {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .svc-num {
+    padding-top: 0;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .c-big,
+  .c-small,
+  .c-mid {
+    grid-column: span 1;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    border-right: none;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .metric:last-child {
+    border-bottom: none;
+  }
+}
