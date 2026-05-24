@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/jotech-2026/',
+  plugins: [],
+  base: '/',
   build: {
     cssMinify: true,
     rollupOptions: {
