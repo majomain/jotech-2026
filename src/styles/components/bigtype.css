@@ -16,10 +16,14 @@
 .bigtype .words .w {
   display: inline;
   color: var(--dim);
-  opacity: 0.5;
+  opacity: 0.35;
   transition:
-    opacity 0.3s ease,
-    color 0.3s ease;
+    opacity 0.35s ease,
+    color 0.35s ease;
+}
+
+.bigtype .words .w.serif:not(.lit) {
+  color: var(--dim);
 }
 
 .bigtype .words .w.lit {
@@ -27,6 +31,6 @@
   color: var(--fg);
 }
 
-.bigtype .words .serif.lit {
+.bigtype .words .w.serif.lit {
   color: var(--acc);
 }

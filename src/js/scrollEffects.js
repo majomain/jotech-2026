@@ -39,15 +39,13 @@ export function initScrollEffects(root = document, words = []) {
       if (block) {
         const rect = block.getBoundingClientRect();
         const vh = window.innerHeight;
-        // Reveal while the block moves through the upper half of the viewport.
-        const anchor = rect.top + rect.height * 0.25;
-        const revealStart = vh * 1.05;
-        const revealEnd = vh * 0.45;
+        const revealStart = vh * 1.1;
+        const revealEnd = vh * 0.2;
         const progress = Math.max(
           0,
-          Math.min(1, (revealStart - anchor) / (revealStart - revealEnd)),
+          Math.min(1, (revealStart - rect.top) / (rect.height + revealStart - revealEnd)),
         );
-        const litCount = Math.ceil(progress * words.length);
+        const litCount = Math.ceil(progress * words.length * 1.2);
         words.forEach((word, i) => {
           word.classList.toggle('lit', i < litCount);
         });

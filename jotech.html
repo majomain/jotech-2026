@@ -95,9 +95,10 @@ a{color:inherit;text-decoration:none}
 
 .bigtype{padding:30vh 5vw;max-width:1300px;margin:0 auto}
 .bigtype .words{font-family:var(--font-display);font-size:clamp(28px,4.5vw,72px);line-height:1.08;font-weight:500;letter-spacing:-.025em;text-wrap:balance}
-.bigtype .words .w{display:inline;color:var(--dim);opacity:.5;transition:opacity .3s ease,color .3s ease}
+.bigtype .words .w{display:inline;color:var(--dim);opacity:.35;transition:opacity .35s ease,color .35s ease}
+.bigtype .words .w.serif:not(.lit){color:var(--dim)}
 .bigtype .words .w.lit{opacity:1;color:var(--fg)}
-.bigtype .words .serif.lit{color:var(--acc)}
+.bigtype .words .w.serif.lit{color:var(--acc)}
 
 .hwrap{height:300vh;position:relative}
 .hsticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
@@ -383,10 +384,10 @@ footer{padding:40px 5vw 36px;border-top:1px solid var(--line);display:flex;flex-
         var wEl=document.getElementById('words').parentNode;
         var r=wEl.getBoundingClientRect();
         var vh=window.innerHeight;
-        var start=vh*0.8,end=vh*0.15;
+        var start=vh*1.1,end=vh*0.2;
         var p=Math.max(0,Math.min(1,(start-r.top)/(r.height+start-end)));
-        var lit=Math.ceil(p*words.length*1.1);
-        words.forEach(function(w,i){if(i<lit)w.classList.add('lit');else w.classList.remove('lit');});
+        var lit=Math.ceil(p*words.length*1.2);
+        words.forEach(function(w,i){w.classList.toggle('lit',i<lit);});
       }
       if(htrack&&hwrap&&window.innerWidth>860&&!reduce){
         var hr=hwrap.getBoundingClientRect();
