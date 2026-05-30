@@ -1,9 +1,112 @@
 :root {
-  --paper: #f3efe6;
-  --paper2: #eae4d6;
-  --ink: #14110d;
-  --ink-soft: #4a4438;
-  --accent: #1f4fff;
-  --accent2: #ff3b1f;
-  --line: rgba(20, 17, 13, 0.14);
+  --font-display: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-accent: 'Instrument Serif', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --mono-track: 0.08em;
+  --accent-track: 0.015em;
+
+  color-scheme: light dark;
+}
+
+[data-theme='light'] {
+  --bg: #f7f5f0;
+  --bg2: #eae6df;
+  --fg: #0c0c10;
+  --dim: #5a564e;
+  --acc: #c99300;
+  --acc2: #1a6560;
+  --line: rgba(12, 12, 16, 0.14);
+  --scrim: rgba(247, 245, 240, 0.72);
+  --selection-fg: #f7f5f0;
+  --btn-fg: #0c0c10;
+  --wcard-fg: #0c0c10;
+  --wcard-dim: #45423c;
+  --wcard-ov-start: rgba(255, 255, 255, 0);
+  --wcard-ov-end: rgba(247, 245, 240, 0.92);
+  --metrics-bg: rgba(234, 230, 223, 0.55);
+  --blob-green: #1d6b4a;
+  --blob-orange: #7a2e00;
+  --cta-shadow: rgba(201, 147, 0, 0.35);
+  --foot-logo-opacity: 0.1;
+  --wcard-grain-opacity: 0.06;
+  --wcard-teal: #8ec4bd;
+  --wcard-mid: #5a8078;
+  --wcard-gold: #c99300;
+  --wcard-base: #f0ece4;
+  --work-card-bg:
+    radial-gradient(
+      ellipse 180% 160% at 8% 12%,
+      var(--wcard-teal) 0%,
+      rgba(142, 196, 189, 0.42) 32%,
+      rgba(142, 196, 189, 0.08) 55%,
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 180% 160% at 92% 88%,
+      var(--wcard-gold) 0%,
+      rgba(201, 147, 0, 0.35) 32%,
+      rgba(201, 147, 0, 0.08) 55%,
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 240% 220% at 50% 50%,
+      var(--wcard-mid) 0%,
+      rgba(90, 128, 120, 0.82) 32%,
+      rgba(90, 128, 120, 0.58) 52%,
+      rgba(90, 128, 120, 0.22) 74%,
+      transparent 96%
+    ),
+    var(--wcard-base);
+}
+
+[data-theme='dark'] {
+  --bg: #0c0c10;
+  --bg2: #141419;
+  --fg: #f7f5f0;
+  --dim: #c4c0b8;
+  --acc: #ffd24a;
+  --acc2: #3da89e;
+  --line: rgba(247, 245, 240, 0.14);
+  --scrim: rgba(12, 12, 16, 0.62);
+  --selection-fg: #000;
+  --btn-fg: #000;
+  --wcard-fg: #f7f5f0;
+  --wcard-dim: #c4c0b8;
+  --wcard-ov-start: rgba(10, 10, 12, 0.1);
+  --wcard-ov-end: rgba(10, 10, 12, 0.85);
+  --metrics-bg: rgba(16, 16, 20, 0.4);
+  --blob-green: #1d6b4a;
+  --blob-orange: #7a2e00;
+  --cta-shadow: rgba(255, 210, 74, 0.4);
+  --foot-logo-opacity: 0.12;
+  --wcard-grain-opacity: 0.1;
+  --wcard-teal: #1a6560;
+  --wcard-mid: #1f3530;
+  --wcard-gold: #ffd24a;
+  --wcard-base: #0c0c10;
+  --work-card-bg:
+    radial-gradient(
+      ellipse 180% 160% at 8% 12%,
+      var(--wcard-teal) 0%,
+      rgba(26, 101, 96, 0.42) 32%,
+      rgba(26, 101, 96, 0.08) 55%,
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 180% 160% at 92% 88%,
+      var(--wcard-gold) 0%,
+      rgba(255, 210, 74, 0.35) 32%,
+      rgba(255, 210, 74, 0.08) 55%,
+      transparent 88%
+    ),
+    radial-gradient(
+      ellipse 240% 220% at 50% 50%,
+      var(--wcard-mid) 0%,
+      rgba(31, 53, 48, 0.88) 32%,
+      rgba(31, 53, 48, 0.62) 52%,
+      rgba(31, 53, 48, 0.24) 74%,
+      transparent 96%
+    ),
+    var(--wcard-base);
 }

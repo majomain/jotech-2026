@@ -1,26 +1,6 @@
-@keyframes grain {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  20% {
-    transform: translate(-4%, -6%);
-  }
-  40% {
-    transform: translate(5%, -3%);
-  }
-  60% {
-    transform: translate(-6%, 4%);
-  }
-  80% {
-    transform: translate(4%, 6%);
-  }
-}
-
-@keyframes fadeUp {
+@keyframes fadeIn {
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -29,13 +9,38 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(7px);
+    transform: translateY(6px);
   }
 }
 
-@keyframes scroll {
-  to {
-    transform: translateX(-50%);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero h1 .ln em {
+    transform: none !important;
+  }
+
+  .hero-carousel__track {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0 5vw;
+  }
+
+  .hero-carousel {
+    mask-image: none;
+  }
+
+  .bigtype .words .w {
+    opacity: 1 !important;
+    color: var(--fg) !important;
   }
 }

@@ -1,14 +1,17 @@
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 2px solid var(--ink);
-  border-radius: 4px;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   overflow: hidden;
+  backdrop-filter: blur(6px);
+  background: var(--metrics-bg);
 }
 
 .metric {
-  padding: 54px 36px;
-  border-right: 2px solid var(--ink);
+  padding: 56px 38px;
+  border-right: 1px solid var(--line);
 }
 
 .metric:last-child {
@@ -16,20 +19,23 @@
 }
 
 .metric .num {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(50px, 7vw, 92px);
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 96px);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--accent);
+  color: var(--acc);
 }
 
 .metric .lbl {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-soft);
+  letter-spacing: var(--mono-track);
+  color: var(--dim);
   margin-top: 14px;
-  font-weight: 600;
+}
+
+.metrics-header {
+  margin-bottom: 46px;
 }

@@ -1,17 +1,25 @@
 import './styles/main.css';
 import { renderApp } from './app.js';
-import { initNavScroll } from './js/navScroll.js';
+import { initTheme } from './js/theme.js';
 import { initHeroAnimation } from './js/heroAnimation.js';
-import { initScrollReveal } from './js/scrollReveal.js';
+import { initHeroFit } from './js/heroFit.js';
+import { initHeroCarousel } from './js/heroCarousel.js';
 import { initCounterAnimation } from './js/counterAnimation.js';
+import { initBigType } from './js/bigType.js';
+import { initScrollEffects } from './js/scrollEffects.js';
+import { initServicesAccordion } from './js/servicesAccordion.js';
 
 const app = document.getElementById('app');
 
 if (app) {
   app.innerHTML = renderApp();
 
-  initNavScroll(document.getElementById('nav'));
+  initTheme(document);
+  initHeroFit(document);
   initHeroAnimation(document);
-  initScrollReveal(document);
+  initHeroCarousel(document);
+  const words = initBigType(document);
+  initScrollEffects(document, words);
   initCounterAnimation(document);
+  initServicesAccordion(document);
 }

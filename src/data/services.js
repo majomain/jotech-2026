@@ -1,30 +1,33 @@
 export const services = [
   {
     num: '01',
-    title: 'Design <span class="it">+</span> Narrative',
+    title: 'design <em>+</em> narrative',
     description:
-      'I help businesses leverage their story through visuals and messaging — minimalist principles, kept on-trend with what\'s most effective on the internet right now.',
-    tags: ['Brand Identity', 'UI / UX', 'Art Direction'],
+      'Brand identity, UI/UX, and art direction built on minimalist principles — kept on-trend with what\'s most effective right now.',
+    open: true,
   },
   {
     num: '02',
-    title: 'Marketing <span class="it">+</span> Sales',
+    title: 'web <em>development</em>',
     description:
-      'I execute campaigns aligned with the most compelling strategies in the game. AI is integral — deep analytics of your ICP and target audience, driving real outcomes.',
-    tags: ['Campaigns', 'AI Analytics', 'ICP Research'],
+      'Fast, responsive, future-proof builds. Clean code under beautiful surfaces — every interaction considered.',
   },
   {
     num: '03',
-    title: 'Web <span class="it">Development</span>',
+    title: 'marketing <em>+</em> sales',
     description:
-      'Fast, responsive, future-proof builds. Clean code under beautiful surfaces — every interaction considered, every load time fought for.',
-    tags: ['Frontend', 'Performance', 'Animation'],
+      'Campaigns aligned with the most compelling strategies in the game. AI is integral — deep analytics of your ICP and audience.',
   },
   {
     num: '04',
-    title: 'Technical <span class="it">Solutions</span>',
+    title: 'technical <em>solutions</em>',
     description:
-      'From infrastructure to integrations, I solve the hard problems behind the scenes so the experience out front feels effortless.',
-    tags: ['Systems', 'Integrations', 'Consulting'],
+      'From infrastructure to integrations, the hard problems solved behind the scenes so the front feels effortless.',
+  },
+  {
+    num: '05',
+    title: 'shopify <em>+</em> e-commerce',
+    description:
+      'Platform migrations, theme customization, and client transfer store builds — end-to-end Shopify development as a certified Partner, from replatforming strategy through launch.',
   },
 ];

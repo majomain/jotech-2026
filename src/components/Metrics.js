@@ -13,8 +13,8 @@ export function renderMetrics() {
 
   return [
     '<section>',
-    '  <div class="sec-label reveal">By the numbers</div>',
-    `  <div class="metrics reveal">${items}`,
+    '  <div class="sec-label metrics-header">By the numbers</div>',
+    `  <div class="metrics">${items}`,
     '  </div>',
     '</section>',
   ].join('\n');

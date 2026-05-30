@@ -1,88 +1,173 @@
-.services {
-  border-top: 2px solid var(--ink);
-}
-
 .svc {
-  padding: 48px 0;
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  padding: 42px 0;
   display: grid;
-  grid-template-columns: 90px 1fr 1.1fr;
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 70px 1fr auto;
+  gap: 30px;
+  align-items: center;
   position: relative;
+  cursor: pointer;
   transition: padding-left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.svc:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
 .svc:hover {
-  padding-left: 24px;
+  padding-left: 20px;
 }
 
-.svc::before {
-  content: '';
-  position: absolute;
-  left: -24px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.svc:hover::before {
-  transform: scaleY(1);
-}
-
-.svc-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  color: var(--ink-soft);
-  padding-top: 14px;
-  font-weight: 600;
+.svc .num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--dim);
 }
 
 .svc h3 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.5vw, 60px);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
+  transition: color 0.3s;
 }
 
-.svc h3 .it {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
+.svc:hover h3 {
+  color: var(--acc);
+}
+
+.svc h3 em {
+  font-family: var(--font-accent);
+  font-style: normal;
   font-weight: 400;
-  color: var(--accent);
+  letter-spacing: var(--accent-track);
 }
 
-.svc p {
+.svc .plus {
+  font-size: 30px;
+  color: var(--dim);
+  transition:
+    transform 0.4s,
+    color 0.3s;
+}
+
+.svc:hover .plus {
+  transform: rotate(90deg);
+  color: var(--acc);
+}
+
+.svc .detail {
+  grid-column: 2 / 3;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    margin 0.5s,
+    opacity 0.5s;
+  opacity: 0;
+}
+
+.svc.open .detail {
+  max-height: 160px;
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.svc .detail p {
+  color: var(--dim);
   font-size: 18px;
   line-height: 1.6;
-  color: var(--ink-soft);
+  max-width: 60ch;
 }
 
-.svc-tags {
-  margin-top: 22px;
+.svc.open .plus {
+  transform: rotate(45deg);
+  color: var(--acc);
+}
+
+.services-header {
+  margin-bottom: 50px;
+}
+
+.shopify-partner {
+  margin-top: 60px;
+  padding: clamp(32px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+  background: var(--metrics-bg);
+  backdrop-filter: blur(6px);
+}
+
+.shopify-partner__logo {
+  flex-shrink: 0;
+}
+
+.shopify-partner__logo-img {
+  display: block;
+  width: clamp(200px, 28vw, 300px);
+  height: auto;
+}
+
+.shopify-partner__logo-img--dark {
+  display: none;
+}
+
+[data-theme='dark'] .shopify-partner__logo-img--light {
+  display: none;
+}
+
+[data-theme='dark'] .shopify-partner__logo-img--dark {
+  display: block;
+}
+
+[data-theme='dark'] .shopify-partner__logo-img--filter {
+  filter: brightness(0) invert(1);
+}
+
+.shopify-partner__tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--mono-track);
+  color: var(--acc);
+  margin-bottom: 10px;
+}
+
+.shopify-partner__heading {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.shopify-partner__desc {
+  color: var(--dim);
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.6;
+  max-width: 55ch;
+}
+
+.shopify-partner__caps {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
-}
-
-.svc-tags span {
-  font-family: 'JetBrains Mono', monospace;
+  gap: 8px 0;
+  margin-top: 18px;
+  font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 6px 13px;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  color: var(--ink-soft);
-  transition: 0.3s;
+  letter-spacing: var(--mono-track);
+  color: var(--dim);
 }
 
-.svc:hover .svc-tags span {
-  border-color: var(--ink);
-  color: var(--ink);
+.shopify-partner__caps span:not(:last-child)::after {
+  content: '·';
+  margin: 0 14px;
+  opacity: 0.45;
 }

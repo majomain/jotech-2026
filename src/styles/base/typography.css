@@ -1,61 +1,43 @@
 .eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
-  letter-spacing: 0.28em;
+  letter-spacing: var(--mono-track);
   text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 34px;
-  overflow: hidden;
-}
-
-.eyebrow b {
-  display: inline-block;
-  will-change: transform;
+  color: var(--acc);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.2s forwards;
 }
 
 .sec-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--mono-track);
   text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 48px;
+  color: var(--acc);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .sec-label::before {
   content: '';
-  width: 48px;
-  height: 2px;
-  background: var(--accent);
+  width: 40px;
+  height: 1px;
+  background: var(--acc);
+}
+
+.serif,
+.it {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: var(--accent-track);
+}
+
+.serif {
+  color: var(--acc);
 }
 
 .it {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.reveal.in {
-  opacity: 1;
-  transform: none;
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  color: var(--acc);
 }

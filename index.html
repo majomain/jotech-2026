@@ -4,10 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="JOTECH — Design + Narrative. Modern, high-impact visuals for B2B brands. Web design, development, marketing, and technical solutions.">
+  <meta property="og:image" content="https://assets.jotech.co/jotech-logo-square.svg">
   <title>JOTECH — Design + Narrative</title>
+  <link rel="icon" href="https://assets.jotech.co/jotech-logo-square.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://assets.jotech.co/jotech-logo-square.svg">
+  <link rel="preconnect" href="https://assets.jotech.co" crossorigin>
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/%VITE_ADOBE_FONTS_KIT_ID%.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var key = 'jotech-theme';
+      var stored = localStorage.getItem(key);
+      var theme = stored === 'light' || stored === 'dark'
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
   <div id="app"></div>

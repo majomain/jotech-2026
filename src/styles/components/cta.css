@@ -1,21 +1,22 @@
 .cta {
   text-align: center;
-  padding: 22vh 5vw;
+  padding: 26vh 5vw;
 }
 
 .cta h2 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(46px, 10vw, 160px);
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 76px);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
 }
 
-.cta h2 .it {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
+.cta h2 em {
+  font-family: var(--font-accent);
+  font-style: normal;
   font-weight: 400;
-  color: var(--accent);
+  letter-spacing: var(--accent-track);
+  color: var(--acc);
 }
 
 .cta-btn {
@@ -23,38 +24,21 @@
   align-items: center;
   gap: 14px;
   margin-top: 50px;
-  padding: 22px 46px;
-  background: var(--ink);
-  border: 2px solid var(--ink);
-  border-radius: 50px;
-  font-family: 'JetBrains Mono', monospace;
+  padding: 22px 50px;
+  border-radius: 60px;
+  background: var(--acc);
+  color: var(--btn-fg);
+  font-family: var(--font-mono);
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  color: var(--paper);
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: color 0.4s;
+  letter-spacing: var(--mono-track);
+  font-weight: 500;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s;
 }
 
-.cta-btn s {
-  position: relative;
-  z-index: 2;
-  text-decoration: none;
-}
-
-.cta-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--accent);
-  transform: translateY(101%);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  z-index: 1;
-}
-
-.cta-btn:hover::before {
-  transform: translateY(0);
+.cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px var(--cta-shadow);
 }

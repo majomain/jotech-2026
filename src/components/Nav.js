@@ -1,3 +1,4 @@
+import { site } from '../data/site.js';
 import { navLinks } from '../data/navigation.js';
 import { linkAttrs } from '../utils/html.js';
 
@@ -7,9 +8,12 @@ export function renderNav() {
     .join('');
 
   return [
-    '<nav id="nav">',
-    '  <div class="logo">JO<b>TECH</b></div>',
-    `  <div class="nav-links">${links}</div>`,
+    '<nav class="site-nav">',
+    `  <a href="#" class="logo">${site.name}</a>`,
+    '  <div class="nav-end">',
+    `    <div class="nav-links">${links}</div>`,
+    '    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">Dark</button>',
+    '  </div>',
     '</nav>',
   ].join('\n');
 }

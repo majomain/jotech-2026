@@ -1,31 +1,57 @@
-@media (max-width: 820px) {
-  .nav-links {
-    gap: 16px;
-    font-size: 10px;
-  }
-
-  .hero-sub {
-    gap: 28px;
-  }
-
-  .svc {
-    grid-template-columns: 1fr;
+@media (max-width: 860px) {
+  .nav-end {
     gap: 14px;
   }
 
-  .svc-num {
-    padding-top: 0;
+  .nav-links {
+    gap: 14px;
+    font-size: 10px;
   }
 
-  .work-grid {
-    grid-template-columns: 1fr;
+  .theme-toggle {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .hwrap {
+    height: auto;
+  }
+
+  .hsticky {
+    position: static;
+    height: auto;
+    display: block;
+    padding: 10vh 0;
+  }
+
+  .htrack {
+    flex-direction: column;
+    transform: none !important;
+    gap: 20px;
+  }
+
+  .htrack .intro,
+  .wcard {
+    flex: none;
+    width: 100%;
+  }
+
+  .wcard {
+    height: 60vh;
+  }
+
+  .svc {
+    grid-template-columns: 40px 1fr auto;
     gap: 16px;
   }
 
-  .c-big,
-  .c-small,
-  .c-mid {
-    grid-column: span 1;
+  .svc .detail {
+    grid-column: 1 / 4;
+  }
+
+  .shopify-partner {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .metrics {
@@ -34,10 +60,20 @@
 
   .metric {
     border-right: none;
-    border-bottom: 2px solid var(--ink);
+    border-bottom: 1px solid var(--line);
   }
 
   .metric:last-child {
     border-bottom: none;
+  }
+
+  .bigtype .words {
+    font-size: clamp(24px, 6vw, 42px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .htrack {
+    transform: none !important;
   }
 }

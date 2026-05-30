@@ -11,7 +11,7 @@
 .mtrack {
   display: inline-block;
   animation: scroll 26s linear infinite;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: var(--font-display);
 }
 
 .mtrack span {
@@ -22,10 +22,7 @@
 }
 
 .mtrack .it {
-  font-family: 'Newsreader', serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent2);
+  color: var(--acc2);
 }
 
 .mtrack .st {

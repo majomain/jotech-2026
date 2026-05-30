@@ -2,25 +2,32 @@ import { workItems } from '../data/work.js';
 
 function renderCard(item) {
   return [
-    `<div class="card ${item.size} reveal">`,
-    `  <div class="bg ${item.bg}"></div>`,
+    '<div class="wcard">',
+    `  <div class="bg"></div>`,
     '  <div class="ov"></div>',
-    `  <span class="kicker">${item.kicker}</span>`,
-    `  <h4>${item.title}</h4>`,
-    `  <p>${item.description}</p>`,
+    '  <div class="body">',
+    `    <span class="kick">${item.kicker}</span>`,
+    `    <h3>${item.title}</h3>`,
+    `    <p>${item.description}</p>`,
+    '  </div>',
     '</div>',
   ].join('\n');
 }
 
 export function renderWork() {
-  const cards = workItems.map(renderCard).join('\n    ');
+  const cards = workItems.map(renderCard).join('\n      ');
 
   return [
-    '<section id="work">',
-    '  <div class="sec-label reveal">Selected work</div>',
-    '  <div class="work-grid">',
-    `    ${cards}`,
+    '<div class="hwrap" id="work">',
+    '  <div class="hsticky">',
+    '    <div class="htrack" id="htrack">',
+    '      <div class="intro">',
+    '        <div class="sec-label">Selected Work</div>',
+        '        <h2>stories,<br>made <em>visible.</em></h2>',
+    '      </div>',
+    `      ${cards}`,
+    '    </div>',
     '  </div>',
-    '</section>',
+    '</div>',
   ].join('\n');
 }
