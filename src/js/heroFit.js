@@ -1,5 +1,6 @@
 const MIN_SIZE = 36;
 const MAX_SIZE = 200;
+const MOBILE_BREAKPOINT = 860;
 
 /**
  * Scales the hero headline to fit the available main column height and width.
@@ -11,15 +12,18 @@ export function initHeroFit(root = document) {
   if (!main || !h1) return;
 
   const fit = () => {
-    const eyebrowSpace = eyebrow ? eyebrow.offsetHeight + 30 : 0;
+    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+    const minSize = isMobile ? 28 : MIN_SIZE;
+    const maxSize = isMobile ? 120 : MAX_SIZE;
+    const eyebrowSpace = eyebrow ? eyebrow.offsetHeight + (isMobile ? 20 : 30) : 0;
     const availH = main.clientHeight - eyebrowSpace;
     const availW = main.clientWidth;
 
     if (availH <= 0 || availW <= 0) return;
 
-    let low = MIN_SIZE;
-    let high = MAX_SIZE;
-    let best = MIN_SIZE;
+    let low = minSize;
+    let high = maxSize;
+    let best = minSize;
 
     while (low <= high) {
       const mid = Math.floor((low + high) / 2);

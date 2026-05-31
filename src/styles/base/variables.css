@@ -2,9 +2,11 @@
   --font-display: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-accent: 'Instrument Serif', serif;
+  --accent-style: italic;
   --font-mono: 'JetBrains Mono', monospace;
   --mono-track: 0.08em;
-  --accent-track: 0.015em;
+  --accent-track: 0.01em;
+  --pad-x: clamp(24px, 5vw, 96px);
 
   color-scheme: light dark;
 }

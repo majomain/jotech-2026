@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 5vw;
+  padding: max(22px, env(safe-area-inset-top)) var(--pad-x) 22px;
 }
 
 [data-theme='dark'] .site-nav {
@@ -18,12 +18,57 @@
   mix-blend-mode: normal;
 }
 
+.site-nav.nav-open {
+  mix-blend-mode: normal;
+  background: var(--scrim);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .logo {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 22px;
   letter-spacing: -0.04em;
   color: var(--fg);
+  position: relative;
+  z-index: 2;
+}
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  margin: -8px -10px -8px 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--fg);
+  border-radius: 1px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.site-nav.nav-open .nav-toggle__bar:first-child {
+  transform: translateY(4.5px) rotate(45deg);
+}
+
+.site-nav.nav-open .nav-toggle__bar:last-child {
+  transform: translateY(-4.5px) rotate(-45deg);
 }
 
 .nav-end {
@@ -57,6 +102,7 @@
   text-transform: uppercase;
   letter-spacing: var(--mono-track);
   padding: 8px 14px;
+  min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
@@ -81,4 +127,59 @@
 [data-theme='dark'] .theme-toggle:hover {
   border-color: var(--acc);
   color: var(--acc);
+}
+
+body.nav-lock {
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-end {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    padding: max(88px, calc(env(safe-area-inset-top) + 72px)) var(--pad-x)
+      max(32px, env(safe-area-inset-bottom));
+    background: var(--bg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  .site-nav.nav-open .nav-end {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+  }
+
+  .nav-links a {
+    opacity: 1;
+    padding: 8px 16px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .theme-toggle {
+    font-size: 12px;
+    padding: 12px 24px;
+  }
 }

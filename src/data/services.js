@@ -14,7 +14,7 @@ export const services = [
   },
   {
     num: '03',
-    title: 'marketing <em>+</em> sales',
+    title: 'marketing <em>automation</em>',
     description:
       'Campaigns aligned with the most compelling strategies in the game. AI is integral — deep analytics of your ICP and audience.',
   },
@@ -22,7 +22,7 @@ export const services = [
     num: '04',
     title: 'technical <em>solutions</em>',
     description:
-      'From infrastructure to integrations, the hard problems solved behind the scenes so the front feels effortless.',
+      'We untangle messy tech, simplify your stack, and make workflows easier — from infrastructure to integrations, hard problems solved behind the scenes so the front feels effortless.',
   },
   {
     num: '05',

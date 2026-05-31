@@ -10,7 +10,11 @@ export function renderNav() {
   return [
     '<nav class="site-nav">',
     `  <a href="#" class="logo">${site.name}</a>`,
-    '  <div class="nav-end">',
+    '  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">',
+    '    <span class="nav-toggle__bar"></span>',
+    '    <span class="nav-toggle__bar"></span>',
+    '  </button>',
+    '  <div class="nav-end" id="nav-menu">',
     `    <div class="nav-links">${links}</div>`,
     '    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">Dark</button>',
     '  </div>',

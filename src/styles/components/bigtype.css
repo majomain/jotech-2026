@@ -1,5 +1,5 @@
 .bigtype {
-  padding: clamp(18vh, 22vh, 30vh) 5vw;
+  padding: clamp(18vh, 22vh, 30vh) var(--pad-x);
   max-width: 1300px;
   margin: 0 auto;
 }

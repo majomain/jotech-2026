@@ -33,5 +33,5 @@ a {
 }
 
 section {
-  padding: 16vh 5vw;
+  padding: 16vh var(--pad-x);
 }

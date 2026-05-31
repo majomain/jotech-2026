@@ -1,5 +1,5 @@
 .statement {
-  padding: 20vh 5vw;
+  padding: 20vh var(--pad-x);
   background: var(--ink);
   color: var(--paper);
 }

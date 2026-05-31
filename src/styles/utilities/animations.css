@@ -32,7 +32,7 @@
     transform: none !important;
     overflow-x: auto;
     max-width: 100%;
-    padding: 0 5vw;
+    padding: 0 var(--pad-x);
   }
 
   .hero-carousel {

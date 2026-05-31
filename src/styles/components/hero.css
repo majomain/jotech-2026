@@ -3,7 +3,7 @@
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding: clamp(88px, 12vh, 120px) 5vw clamp(28px, 4vh, 48px);
+  padding: clamp(88px, 12vh, 120px) var(--pad-x) clamp(28px, 4vh, 48px);
   position: relative;
 }
 
@@ -38,7 +38,7 @@
 
 /* Standalone strip below hero — overrides global `section` padding */
 .hero-collection {
-  padding: clamp(40px, 6vh, 72px) 5vw clamp(56px, 9vh, 100px);
+  padding: clamp(40px, 6vh, 72px) var(--pad-x) clamp(56px, 9vh, 100px);
   margin: 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -49,7 +49,7 @@
   width: 100%;
   max-width: min(1040px, 100%);
   margin: 0 auto;
-  padding: 0 5vw;
+  padding: 0;
 }
 
 .hero-carousel {
@@ -154,8 +154,13 @@
   padding-bottom: 0.16em;
 }
 
+.hero h1 .ln em.serif {
+  font-style: var(--accent-style);
+}
+
 .hero h1 .serif {
   font-family: var(--font-accent);
+  font-style: var(--accent-style);
   font-weight: 400;
   letter-spacing: var(--accent-track);
   color: var(--acc);
@@ -173,18 +178,21 @@
 
 .hero-foot p {
   max-width: 34ch;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: clamp(16px, 4vw, 18px);
+  line-height: 1.55;
   color: var(--dim);
   opacity: 0;
   animation: fadeIn 1s ease 1.2s forwards;
 }
 
-.hero-foot p b {
+.hero-foot p .accent-word {
   color: var(--fg);
   font-family: var(--font-accent);
+  font-style: var(--accent-style);
   font-weight: 400;
+  font-synthesis: none;
   letter-spacing: var(--accent-track);
+  -webkit-font-smoothing: antialiased;
 }
 
 .scrolltag {
@@ -208,4 +216,37 @@
   background: var(--acc);
   animation: bob 1.5s ease-in-out infinite;
   font-style: normal;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    padding-top: clamp(76px, 10vh, 96px);
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+
+  .hero-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-top: clamp(16px, 3vh, 32px);
+  }
+
+  .hero-foot p {
+    max-width: none;
+  }
+
+  .hero-carousel__slide {
+    height: clamp(160px, 22vh, 240px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 .ln + .ln {
+    margin-top: -0.1em;
+  }
 }

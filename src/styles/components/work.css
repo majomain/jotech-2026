@@ -15,7 +15,7 @@
 .htrack {
   display: flex;
   gap: 34px;
-  padding: 0 5vw;
+  padding: 0 var(--pad-x);
   will-change: transform;
 }
 
@@ -40,7 +40,7 @@
 
 .htrack .intro h2 em {
   font-family: var(--font-accent);
-  font-style: normal;
+  font-style: var(--accent-style);
   font-weight: 400;
   letter-spacing: var(--accent-track);
   color: var(--acc);

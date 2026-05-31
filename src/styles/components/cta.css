@@ -1,6 +1,6 @@
 .cta {
   text-align: center;
-  padding: 26vh 5vw;
+  padding: 26vh var(--pad-x);
 }
 
 .cta h2 {
@@ -13,7 +13,7 @@
 
 .cta h2 em {
   font-family: var(--font-accent);
-  font-style: normal;
+  font-style: var(--accent-style);
   font-weight: 400;
   letter-spacing: var(--accent-track);
   color: var(--acc);

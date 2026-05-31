@@ -39,7 +39,7 @@
 
 .svc h3 em {
   font-family: var(--font-accent);
-  font-style: normal;
+  font-style: var(--accent-style);
   font-weight: 400;
   letter-spacing: var(--accent-track);
 }

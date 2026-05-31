@@ -1,5 +1,5 @@
 footer {
-  padding: 40px 5vw 36px;
+  padding: 40px var(--pad-x) max(36px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;

@@ -18,14 +18,6 @@ export const heroPreview = {
       height: 2000,
     },
     {
-      id: 'gravity',
-      type: 'image',
-      src: 'https://assets.jotech.co/GRAVITY_ART_4.jpg',
-      alt: 'Gravity artwork',
-      width: 3000,
-      height: 3000,
-    },
-    {
       id: 'video',
       type: 'video',
       src: 'https://assets.jotech.co/port-arkim-product-deck-slide-4.mp4',

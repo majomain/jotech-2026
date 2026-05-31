@@ -7,6 +7,6 @@ export const hero = {
     { text: 'we do.', className: 'serif' },
   ],
   footnote:
-    'Narrative builds <b>community.</b> Community creates <b>culture.</b> I help brands tell that story.',
+    'Narrative builds <span class="accent-word">community.</span> Community creates <span class="accent-word">culture.</span> I help brands tell that story.',
   scrollCue: 'Scroll',
 };

@@ -1,5 +1,5 @@
 export const metrics = [
-  { count: 60, suffix: '', label: 'Projects shipped' },
-  { count: 100, suffix: '%', label: 'Client-obsessed' },
+  { count: 50, suffix: '+', label: 'Projects shipped' },
+  { count: 100, suffix: '%', label: 'Attention to detail' },
   { count: 12, suffix: '+', label: 'Industries served' },
 ];

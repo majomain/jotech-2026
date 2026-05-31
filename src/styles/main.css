@@ -9,6 +9,7 @@
 @import './components/work.css';
 @import './components/services.css';
 @import './components/metrics.css';
+@import './components/founder.css';
 @import './components/cta.css';
 @import './components/footer.css';
 @import './utilities/responsive.css';
