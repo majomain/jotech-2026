@@ -8,7 +8,7 @@ function renderSlide(tile) {
   const media =
     tile.type === 'video'
       ? `<video class="hero-carousel__media" src="${tile.src}" width="${width}" height="${height}" autoplay muted loop playsinline aria-label="${tile.alt}"></video>`
-      : `<img class="hero-carousel__media" src="${tile.src}" alt="${tile.alt}" width="${width}" height="${height}" loading="lazy" decoding="async">`;
+      : `<img class="hero-carousel__media" src="${tile.src}" alt="${tile.alt}" width="${width}" height="${height}" loading="lazy" decoding="async" draggable="false">`;
 
   return `<figure class="hero-carousel__slide" style="${arStyle}">${media}</figure>`;
 }
