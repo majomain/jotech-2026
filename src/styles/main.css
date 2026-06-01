@@ -3,6 +3,7 @@
 @import './base/typography.css';
 @import './utilities/animations.css';
 @import './components/fluid.css';
+@import './components/logo.css';
 @import './components/nav.css';
 @import './components/hero.css';
 @import './components/bigtype.css';

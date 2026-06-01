@@ -1,4 +1,4 @@
-import { site } from '../data/site.js';
+import { renderLogo } from './Logo.js';
 import { navLinks } from '../data/navigation.js';
 import { linkAttrs } from '../utils/html.js';
 
@@ -9,9 +9,7 @@ export function renderNav() {
 
   return [
     '<nav class="site-nav">',
-    '  <a href="/" class="logo">',
-    `    ${site.name}`,
-    '  </a>',
+    `  ${renderLogo('logo', { wordmark: true })}`,
     '  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">',
     '    <span class="nav-toggle__bar"></span>',
     '    <span class="nav-toggle__bar"></span>',

@@ -2,6 +2,7 @@ import './styles/main.css';
 import { renderApp } from './app.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
+import { initNavScroll } from './js/navScroll.js';
 import { initHeroAnimation } from './js/heroAnimation.js';
 import { initHeroFit } from './js/heroFit.js';
 import { initHeroCarousel } from './js/heroCarousel.js';
@@ -19,6 +20,7 @@ if (app) {
 
   initTheme(document);
   initNavMenu(document);
+  initNavScroll(document.querySelector('.site-nav'));
   initHeroFit(document);
   initHeroAnimation(document);
   initHeroCarousel(document);

@@ -1,7 +1,8 @@
 export const site = {
   name: 'JOTECH',
   tagline: 'Design + Narrative',
-  logoUrl: 'https://assets.jotech.co/jotech-logo-square.svg',
+  logoUrl: 'https://assets.jotech.co/jotech-new-logo-transparent-wht.svg',
+  logoUrlDark: 'https://assets.jotech.co/jotech-alt-logo-blk.svg',
   copyright: '© 2026 JOTECH — Design + Narrative.',
   email: 'jacob@jotech.co',
   contactUrl: 'https://jotech.co/contact/',

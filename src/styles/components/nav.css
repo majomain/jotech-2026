@@ -26,11 +26,6 @@
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -0.04em;
-  color: var(--fg);
   position: relative;
   z-index: 2;
 }

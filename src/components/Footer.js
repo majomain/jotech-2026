@@ -1,3 +1,4 @@
+import { renderLogo } from './Logo.js';
 import { site } from '../data/site.js';
 import { footerLinks } from '../data/navigation.js';
 import { linkAttrs } from '../utils/html.js';
@@ -17,7 +18,7 @@ export function renderFooter() {
     '<footer>',
     '  <div class="foot-top">',
     '    <div class="foot-brand">',
-    `      <div class="foot-logo">${site.name}</div>`,
+    `      ${renderLogo('foot-logo', { link: false })}`,
     `      <p class="foot-tagline">${site.tagline}</p>`,
     '    </div>',
     '    <nav class="foot-nav" aria-label="Footer">',
