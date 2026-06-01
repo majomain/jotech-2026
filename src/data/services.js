@@ -14,7 +14,7 @@ export const services = [
   },
   {
     num: '03',
-    title: 'marketing <em>automation</em>',
+    title: 'marketing automation',
     description:
       'Campaigns aligned with the most compelling strategies in the game. AI is integral — deep analytics of your ICP and audience.',
   },

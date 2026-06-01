@@ -10,6 +10,7 @@ import { initBigType } from './js/bigType.js';
 import { initScrollEffects } from './js/scrollEffects.js';
 import { initScrollReveal } from './js/scrollReveal.js';
 import { initServicesAccordion } from './js/servicesAccordion.js';
+import { initRouting } from './js/routing.js';
 
 const app = document.getElementById('app');
 
@@ -26,4 +27,5 @@ if (app) {
   initScrollReveal(document);
   initCounterAnimation(document);
   initServicesAccordion(document);
+  initRouting(document);
 }
