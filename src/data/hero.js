@@ -1,5 +1,5 @@
 export const hero = {
-  eyebrow: 'Web Design / Brand Design',
+  eyebrow: 'Web Design / Brand Identity',
   lines: [
     { text: 'modern,', className: '' },
     { text: 'high-impact', className: '' },

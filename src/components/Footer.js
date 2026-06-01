@@ -18,7 +18,7 @@ export function renderFooter() {
     '<footer>',
     '  <div class="foot-top">',
     '    <div class="foot-brand">',
-    `      ${renderLogo('foot-logo', { link: false })}`,
+    `      ${renderLogo('foot-logo')}`,
     `      <p class="foot-tagline">${site.tagline}</p>`,
     '    </div>',
     '    <nav class="foot-nav" aria-label="Footer">',

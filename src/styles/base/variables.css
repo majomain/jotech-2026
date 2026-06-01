@@ -5,7 +5,7 @@
   --accent-style: italic;
   --font-mono: 'JetBrains Mono', monospace;
   --mono-track: 0.08em;
-  --accent-track: 0.01em;
+  --accent-track: -0.02em;
   --pad-x: clamp(24px, 5vw, 96px);
   --nav-logo-height: 72px;
   --nav-logo-width: calc(var(--nav-logo-height) * 651.75 / 771.75);
