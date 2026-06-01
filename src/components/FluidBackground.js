@@ -6,7 +6,6 @@ export function renderFluidBackground() {
     '  <div class="blob b3"></div>',
     '</div>',
     '<div class="scrim"></div>',
-    '<div class="noise"></div>',
   ].join('\n');
 }
 

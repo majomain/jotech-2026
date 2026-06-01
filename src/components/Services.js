@@ -2,13 +2,15 @@ import { services } from '../data/services.js';
 import { shopifyPartner } from '../data/shopify.js';
 
 function renderService(service) {
+  const shopifyBlock = service.shopifyPartner ? `\n    ${renderShopifyPartner()}` : '';
+
   return [
     `<div class="svc${service.open ? ' open' : ''}">`,
     `  <div class="num">${service.num}</div>`,
     `  <h3>${service.title}</h3>`,
     '  <span class="plus">+</span>',
     '  <div class="detail">',
-    `    <p>${service.description}</p>`,
+    `    <p>${service.description}</p>${shopifyBlock}`,
     '  </div>',
     '</div>',
   ].join('\n');
@@ -28,10 +30,6 @@ function renderShopifyPartnerLogo() {
 }
 
 function renderShopifyPartner() {
-  const caps = shopifyPartner.capabilities
-    .map((cap) => `<span>${cap}</span>`)
-    .join('');
-
   return [
     '<div class="shopify-partner">',
     '  <div class="shopify-partner__logo">',
@@ -41,7 +39,6 @@ function renderShopifyPartner() {
     `    <div class="shopify-partner__tag">${shopifyPartner.tag}</div>`,
     `    <h3 class="shopify-partner__heading">${shopifyPartner.heading}</h3>`,
     `    <p class="shopify-partner__desc">${shopifyPartner.description}</p>`,
-    `    <div class="shopify-partner__caps">${caps}</div>`,
     '  </div>',
     '</div>',
   ].join('\n');
@@ -54,7 +51,6 @@ export function renderServices() {
     '<section id="services">',
     '  <div class="sec-label services-header">Services</div>',
     `  ${items}`,
-    `  ${renderShopifyPartner()}`,
     '</section>',
   ].join('\n');
 }

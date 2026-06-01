@@ -29,5 +29,6 @@ export const services = [
     title: 'shopify <em>+</em> e-commerce',
     description:
       'Platform migrations, theme customization, and client transfer store builds — end-to-end Shopify development as a certified Partner, from replatforming strategy through launch.',
+    shopifyPartner: true,
   },
 ];

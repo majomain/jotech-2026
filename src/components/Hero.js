@@ -37,7 +37,6 @@ export function renderHero() {
     '  </div>',
     '  <div class="hero-foot">',
     `    <p>${heroData.footnote}</p>`,
-    `    <div class="scrolltag"><i></i> ${heroData.scrollCue}</div>`,
     '  </div>',
     '</header>',
   ].join('\n');

@@ -8,5 +8,4 @@ export const hero = {
   ],
   footnote:
     'Narrative builds <span class="accent-word">community.</span> Community creates <span class="accent-word">culture.</span> I help brands tell that story.',
-  scrollCue: 'Scroll',
 };

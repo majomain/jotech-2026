@@ -195,29 +195,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.scrolltag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: var(--mono-track);
-  text-transform: uppercase;
-  color: var(--dim);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  opacity: 0;
-  animation: fadeIn 1s ease 1.4s forwards;
-  flex-shrink: 0;
-}
-
-.scrolltag i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--acc);
-  animation: bob 1.5s ease-in-out infinite;
-  font-style: normal;
-}
-
 @media (max-width: 860px) {
   .hero {
     padding-top: clamp(76px, 10vh, 96px);
