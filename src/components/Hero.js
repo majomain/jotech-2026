@@ -17,7 +17,7 @@ function renderCarouselGroup() {
   return heroPreview.tiles.map(renderSlide).join('\n        ');
 }
 
-export function renderHero() {
+function renderHeroHeadline() {
   const lines = heroData.lines
     .map((line, i) => {
       const classAttr = line.className ? ` class="${line.className}"` : '';
@@ -34,12 +34,29 @@ export function renderHero() {
     `        ${lines}`,
     '      </h1>',
     '    </div>',
-    '  </div>',
-    '  <div class="hero-foot">',
-    `    <p>${heroData.footnote}</p>`,
+    '    <div class="hero-aside">',
+    `      <p class="hero-subtext">${heroData.footnote}</p>`,
+    '    </div>',
     '  </div>',
     '</header>',
   ].join('\n');
+}
+
+/** Hero headline + portfolio carousel — one viewport on first load */
+export function renderHeroStage() {
+  return [
+    '<div class="hero-stage">',
+    '  <canvas class="hero-grain" aria-hidden="true"></canvas>',
+    '  <div class="hero-grain-scrim" aria-hidden="true"></div>',
+    renderHeroHeadline(),
+    renderHeroCollection(),
+    '</div>',
+  ].join('\n');
+}
+
+/** @deprecated Use renderHeroStage — kept for tests or partial renders */
+export function renderHero() {
+  return renderHeroHeadline();
 }
 
 export function renderHeroCollection() {
@@ -47,9 +64,6 @@ export function renderHeroCollection() {
 
   return [
     '<section class="hero-collection" aria-label="Portfolio preview">',
-    '  <div class="hero-collection-inner">',
-    `    <span class="hero-preview-label">${heroPreview.label}</span>`,
-    '  </div>',
     '  <div class="hero-carousel">',
     '    <div class="hero-carousel__track">',
     '      <div class="hero-carousel__group">',

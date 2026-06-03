@@ -7,5 +7,5 @@ export const hero = {
     { text: 'we do.', className: 'serif' },
   ],
   footnote:
-    'Narrative builds <span class="accent-word">community.</span> Community creates <span class="accent-word">culture.</span> I help brands tell that story.',
+    'Narrative builds <span class="accent-word">community.</span> Community creates <span class="accent-word">culture.</span> We help brands tell that story.',
 };

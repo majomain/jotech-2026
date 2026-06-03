@@ -1,84 +1,194 @@
-.hero {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
+/* First screen: headline + featured work carousel — exactly one viewport */
+.hero-stage {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  row-gap: clamp(14px, 2.2vh, 26px);
   padding: var(--pad-x);
   padding-top: calc(
     max(var(--nav-pad-block), env(safe-area-inset-top)) + var(--nav-logo-height) +
       var(--nav-pad-block) + var(--nav-clearance)
   );
-  padding-bottom: clamp(28px, 4vh, 48px);
+  padding-bottom: 0;
   position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-grain-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--bg) 18%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 62%, transparent) 48%,
+    color-mix(in srgb, var(--bg) 88%, transparent) 100%
+  );
+}
+
+[data-theme='light'] .hero-grain-scrim {
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--bg) 42%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 82%, transparent) 100%
+  );
+}
+
+.hero-stage.hero-grain--fallback {
+  background:
+    radial-gradient(ellipse 80% 60% at 85% 35%, color-mix(in srgb, var(--acc2) 14%, transparent), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 15% 75%, color-mix(in srgb, var(--acc) 10%, transparent), transparent 68%),
+    var(--bg);
+}
+
+.hero-stage > .hero,
+.hero-stage > .hero-collection {
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  align-self: start;
+  min-height: 0;
 }
 
 .hero .eyebrow {
-  padding-top: 4px;
+  padding-top: 0;
+  margin-bottom: clamp(8px, 1vh, 12px);
 }
 
 .hero-banner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(36ch, 34vw));
+  align-items: end;
+  gap: clamp(20px, 4vw, 56px);
+  width: 100%;
 }
 
 .hero-main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 0;
-  width: 100%;
-  container-type: size;
-  container-name: hero-main;
+  justify-content: flex-start;
+  min-width: 0;
 }
 
-.hero-preview-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: var(--mono-track);
-  text-transform: uppercase;
+.hero-aside {
+  align-self: end;
+  justify-self: end;
+  width: min(36ch, 34vw);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.hero-subtext {
+  width: 100%;
+  max-width: 34ch;
+  margin-left: auto;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.55;
   color: var(--dim);
-  margin-bottom: 14px;
-  opacity: 0.65;
+  text-align: right;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.2s forwards;
 }
 
-/* Standalone strip below hero — overrides global `section` padding */
+.hero-subtext .accent-word {
+  color: var(--fg);
+  font-family: var(--font-accent);
+  font-style: var(--accent-style);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: var(--accent-track);
+  -webkit-font-smoothing: antialiased;
+}
+
 .hero-collection {
-  padding: clamp(40px, 6vh, 72px) var(--pad-x) clamp(56px, 9vh, 100px);
-  margin: 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg2) 42%, transparent);
-}
-
-.hero-collection-inner {
-  width: 100%;
-  max-width: min(1040px, 100%);
-  margin: 0 auto;
-  padding: 0;
-}
-
-.hero-carousel {
+  --hero-carousel-fade: var(--bg);
+  --hero-fade-w: max(var(--pad-x), calc(var(--pad-x) * 1.65 - 20px));
+  --hero-collection-pad-top: clamp(24px, 3.5vh, 35px);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 calc(-1 * var(--pad-x)) 0;
+  padding: var(--hero-collection-pad-top) 0 0;
   overflow: hidden;
-  width: 100%;
-  margin-top: 4px;
-  cursor: grab;
-  touch-action: pan-y;
-  mask-image: linear-gradient(
+  background: transparent;
+}
+
+.hero-collection::before,
+.hero-collection::after {
+  content: '';
+  position: absolute;
+  top: var(--hero-collection-pad-top);
+  bottom: 0;
+  width: var(--hero-fade-w);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-collection::before {
+  left: 0;
+  background: linear-gradient(
     90deg,
-    transparent 0%,
-    #000 6%,
-    #000 94%,
+    var(--hero-carousel-fade) 0%,
+    color-mix(in srgb, var(--hero-carousel-fade) 82%, transparent) 28%,
+    color-mix(in srgb, var(--hero-carousel-fade) 45%, transparent) 58%,
+    color-mix(in srgb, var(--hero-carousel-fade) 12%, transparent) 82%,
     transparent 100%
   );
 }
 
+.hero-collection::after {
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    var(--hero-carousel-fade) 0%,
+    color-mix(in srgb, var(--hero-carousel-fade) 82%, transparent) 28%,
+    color-mix(in srgb, var(--hero-carousel-fade) 45%, transparent) 58%,
+    color-mix(in srgb, var(--hero-carousel-fade) 12%, transparent) 82%,
+    transparent 100%
+  );
+}
+
+.hero-carousel {
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 0;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
 .hero-carousel__track {
   display: flex;
+  height: 100%;
   width: max-content;
+  align-items: center;
   animation: heroCarousel 48s linear infinite;
   will-change: transform;
 }
@@ -86,6 +196,7 @@
 .hero-carousel__group {
   display: flex;
   align-items: center;
+  height: 100%;
   gap: clamp(5px, 0.6vw, 8px);
   padding-right: clamp(5px, 0.6vw, 8px);
   flex-shrink: 0;
@@ -97,7 +208,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: clamp(200px, 28vh, 320px);
+  height: var(--hero-slide-h, 100%);
+  min-height: 0;
   aspect-ratio: var(--tile-ar);
   overflow: hidden;
   border-radius: 5px;
@@ -143,10 +255,10 @@
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: var(--hero-fs, clamp(40px, 9vw, 160px));
-  line-height: 1;
+  font-size: var(--hero-fs, clamp(28px, 4.2vw, 68px));
+  line-height: 0.98;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -161,19 +273,19 @@
 .hero h1 .ln em {
   display: inline-block;
   font-style: normal;
-  line-height: 1;
-  padding-top: 0.04em;
-  padding-bottom: 0.14em;
+  line-height: 0.98;
+  padding-top: 0.02em;
+  padding-bottom: 0.06em;
   transform: translateY(110%);
   will-change: transform;
 }
 
 .hero h1 .ln + .ln {
-  margin-top: -0.16em;
+  margin-top: -0.06em;
 }
 
 .hero h1 .ln:last-child em {
-  padding-bottom: 0.16em;
+  padding-bottom: 0.08em;
 }
 
 .hero h1 .ln em.serif {
@@ -188,67 +300,47 @@
   color: var(--acc);
 }
 
-.hero-foot {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding-top: clamp(24px, 4vh, 48px);
-}
-
-.hero-foot p {
-  max-width: 34ch;
-  font-size: clamp(16px, 4vw, 18px);
-  line-height: 1.55;
-  color: var(--dim);
-  opacity: 0;
-  animation: fadeIn 1s ease 1.2s forwards;
-}
-
-.hero-foot p .accent-word {
-  color: var(--fg);
-  font-family: var(--font-accent);
-  font-style: var(--accent-style);
-  font-weight: 400;
-  font-synthesis: none;
-  letter-spacing: var(--accent-track);
-  -webkit-font-smoothing: antialiased;
-}
-
 @media (max-width: 860px) {
   :root {
     --nav-clearance: 14px;
   }
 
-  .hero {
-    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  .hero-stage {
+    row-gap: clamp(10px, 1.8vh, 16px);
   }
 
   .hero .eyebrow {
-    padding-top: 2px;
+    margin-bottom: 8px;
   }
 
   .eyebrow {
     font-size: 11px;
-    margin-bottom: 20px;
   }
 
-  .hero-foot {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding-top: clamp(16px, 3vh, 32px);
+  .hero h1 {
+    font-size: clamp(24px, 6.5vw, 44px);
   }
 
-  .hero-foot p {
-    max-width: none;
+  .hero-banner {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: clamp(16px, 3vh, 24px);
   }
 
-  .hero-carousel__slide {
-    height: clamp(160px, 22vh, 240px);
+  .hero-aside {
+    justify-self: end;
+    width: 100%;
+    order: 2;
   }
+
+  .hero-main {
+    order: 1;
+  }
+
+  .hero-subtext {
+    max-width: min(34ch, 100%);
+  }
+
 }
 
 @media (max-width: 480px) {

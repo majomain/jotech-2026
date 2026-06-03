@@ -25,7 +25,13 @@
   }
 
   .hero-carousel {
+    -webkit-mask-image: none;
     mask-image: none;
+  }
+
+  .hero-collection::before,
+  .hero-collection::after {
+    display: none;
   }
 
   .bigtype .words .w {

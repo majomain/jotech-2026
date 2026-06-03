@@ -1,5 +1,4 @@
 export const heroPreview = {
-  label: 'Selected work',
   tiles: [
     {
       id: 'mcveigh',

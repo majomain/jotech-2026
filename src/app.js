@@ -1,6 +1,6 @@
 import { renderFluidBackground, renderProgressBar } from './components/FluidBackground.js';
 import { renderNav } from './components/Nav.js';
-import { renderHero, renderHeroCollection } from './components/Hero.js';
+import { renderHeroStage } from './components/Hero.js';
 import { renderBigType } from './components/BigType.js';
 import { renderWork } from './components/WorkGrid.js';
 import { renderServices } from './components/Services.js';
@@ -16,8 +16,7 @@ export function renderApp() {
     '<div class="wrap">',
     renderNav(),
     '<main id="main">',
-    renderHero(),
-    renderHeroCollection(),
+    renderHeroStage(),
     renderBigType(),
     renderWork(),
     renderServices(),
