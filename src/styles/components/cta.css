@@ -14,7 +14,7 @@
 .cta h2 em {
   font-family: var(--font-accent);
   font-style: var(--accent-style);
-  font-weight: 400;
+  font-weight: var(--accent-weight);
   letter-spacing: var(--accent-track);
   color: var(--acc);
 }

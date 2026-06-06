@@ -1,7 +1,7 @@
 export const services = [
   {
     num: '01',
-    title: 'design <em>+</em> narrative',
+    title: 'design + <em>narrative</em>',
     description:
       'Brand identity, UI/UX, and art direction built on minimalist principles — kept on-trend with what\'s most effective right now.',
     open: true,
@@ -14,7 +14,7 @@ export const services = [
   },
   {
     num: '03',
-    title: 'marketing automation',
+    title: 'marketing <em>automation</em>',
     description:
       'Campaigns aligned with the most compelling strategies in the game. AI is integral — deep analytics of your ICP and audience.',
   },
@@ -26,7 +26,7 @@ export const services = [
   },
   {
     num: '05',
-    title: 'shopify <em>+</em> e-commerce',
+    title: 'shopify + <em>e-commerce</em>',
     description:
       'Platform migrations, theme customization, and client transfer store builds — end-to-end Shopify development as a certified Partner, from replatforming strategy through launch.',
     shopifyPartner: true,

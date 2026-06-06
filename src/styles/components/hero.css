@@ -116,7 +116,7 @@
   color: var(--fg);
   font-family: var(--font-accent);
   font-style: var(--accent-style);
-  font-weight: 400;
+  font-weight: var(--accent-weight);
   font-synthesis: none;
   letter-spacing: var(--accent-track);
   -webkit-font-smoothing: antialiased;
@@ -284,18 +284,23 @@
   margin-top: -0.06em;
 }
 
+.hero h1 .ln + .ln:last-child {
+  margin-top: -0.14em;
+}
+
 .hero h1 .ln:last-child em {
   padding-bottom: 0.08em;
 }
 
 .hero h1 .ln em.serif {
   font-style: var(--accent-style);
+  padding-top: 0;
 }
 
 .hero h1 .serif {
   font-family: var(--font-accent);
   font-style: var(--accent-style);
-  font-weight: 400;
+  font-weight: var(--accent-weight);
   letter-spacing: var(--accent-track);
   color: var(--acc);
 }

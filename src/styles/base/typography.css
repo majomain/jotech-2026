@@ -31,7 +31,7 @@
 .it {
   font-family: var(--font-accent);
   font-style: var(--accent-style);
-  font-weight: 400;
+  font-weight: var(--accent-weight);
   letter-spacing: var(--accent-track);
 }
 
