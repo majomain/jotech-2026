@@ -78,7 +78,7 @@
 }
 
 .hero-banner {
-  --hero-subtext-width: 480px;
+  --hero-subtext-width: 540px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, var(--hero-subtext-width));
   align-items: end;
@@ -132,9 +132,9 @@
   font-weight: 700;
 }
 
-@media (max-width: 860px) {
-  .hero-subtext__break {
-    display: none;
+@media (min-width: 861px) {
+  .hero-subtext__line {
+    display: block;
   }
 }
 
