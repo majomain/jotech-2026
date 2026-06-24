@@ -78,8 +78,9 @@
 }
 
 .hero-banner {
+  --hero-subtext-width: 480px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--hero-subtext-width));
   align-items: end;
   gap: clamp(20px, 4vw, 56px);
   width: 100%;
@@ -95,14 +96,14 @@
 .hero-aside {
   align-self: end;
   justify-self: end;
-  width: 360px;
+  width: var(--hero-subtext-width);
   max-width: 100%;
   min-width: 0;
 }
 
 .hero-subtext {
   width: 100%;
-  max-width: 360px;
+  max-width: var(--hero-subtext-width);
   margin-left: auto;
   font-size: clamp(15px, 1.35vw, 18px);
   line-height: 1.55;
@@ -114,17 +115,10 @@
 
 .hero-subtext .accent-word {
   color: var(--fg);
-  font-family: var(--font-accent);
-  font-style: var(--accent-style);
-  font-weight: 400;
-  font-synthesis: none;
-  letter-spacing: var(--accent-track);
-  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
 }
 
 .hero-collection {
-  --hero-carousel-fade: var(--bg);
-  --hero-fade-w: max(var(--pad-x), calc(var(--pad-x) * 1.65 - 20px));
   --hero-collection-pad-top: clamp(24px, 3.5vh, 35px);
   min-height: 0;
   display: flex;
@@ -134,41 +128,6 @@
   padding: var(--hero-collection-pad-top) 0 0;
   overflow: hidden;
   background: transparent;
-}
-
-.hero-collection::before,
-.hero-collection::after {
-  content: '';
-  position: absolute;
-  top: var(--hero-collection-pad-top);
-  bottom: 0;
-  width: var(--hero-fade-w);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-collection::before {
-  left: 0;
-  background: linear-gradient(
-    90deg,
-    var(--hero-carousel-fade) 0%,
-    color-mix(in srgb, var(--hero-carousel-fade) 82%, transparent) 28%,
-    color-mix(in srgb, var(--hero-carousel-fade) 45%, transparent) 58%,
-    color-mix(in srgb, var(--hero-carousel-fade) 12%, transparent) 82%,
-    transparent 100%
-  );
-}
-
-.hero-collection::after {
-  right: 0;
-  background: linear-gradient(
-    270deg,
-    var(--hero-carousel-fade) 0%,
-    color-mix(in srgb, var(--hero-carousel-fade) 82%, transparent) 28%,
-    color-mix(in srgb, var(--hero-carousel-fade) 45%, transparent) 58%,
-    color-mix(in srgb, var(--hero-carousel-fade) 12%, transparent) 82%,
-    transparent 100%
-  );
 }
 
 .hero-carousel {
@@ -288,15 +247,7 @@
   padding-bottom: 0.08em;
 }
 
-.hero h1 .ln em.serif {
-  font-style: var(--accent-style);
-}
-
-.hero h1 .serif {
-  font-family: var(--font-accent);
-  font-style: var(--accent-style);
-  font-weight: 400;
-  letter-spacing: var(--accent-track);
+.hero h1 .accent {
   color: var(--acc);
 }
 
@@ -338,7 +289,7 @@
   }
 
   .hero-subtext {
-    max-width: min(360px, 100%);
+    max-width: min(var(--hero-subtext-width), 100%);
   }
 
 }

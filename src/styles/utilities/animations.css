@@ -29,11 +29,6 @@
     mask-image: none;
   }
 
-  .hero-collection::before,
-  .hero-collection::after {
-    display: none;
-  }
-
   .bigtype .words .w {
     opacity: 1 !important;
     color: var(--fg) !important;

@@ -32,5 +32,21 @@ export const heroPreview = {
       width: 4000,
       height: 2250,
     },
+    {
+      id: 'asoc-slide-2',
+      type: 'image',
+      src: 'https://assets.jotech.co/port-ASOC-slide-2.jpg',
+      alt: 'A Scattering of Clouds slide preview',
+      width: 1920,
+      height: 1080,
+    },
+    {
+      id: 'arkim-video',
+      type: 'video',
+      src: 'https://assets.jotech.co/port-arkim-video.mp4',
+      alt: 'Arkim video preview',
+      width: 16,
+      height: 9,
+    },
   ],
 };
