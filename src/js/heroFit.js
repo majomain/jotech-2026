@@ -58,7 +58,8 @@ export function initHeroFit(root = document) {
       }
     }
 
-    h1.style.fontSize = `${best}px`;
+    document.documentElement.style.setProperty('--hero-fs', `${best}px`);
+    h1.style.removeProperty('font-size');
   };
 
   const layout = () => {

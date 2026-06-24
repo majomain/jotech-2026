@@ -29,6 +29,10 @@
     mask-image: none;
   }
 
+  .hero-subtext.is-typing::after {
+    display: none;
+  }
+
   .bigtype .words .w {
     opacity: 1 !important;
     color: var(--fg) !important;

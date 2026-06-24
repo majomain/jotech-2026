@@ -57,10 +57,6 @@
     border-bottom: none;
   }
 
-  .bigtype .words {
-    font-size: clamp(24px, 6vw, 42px);
-  }
-
   .bigtype {
     padding: clamp(14vh, 18vh, 24vh) var(--pad-x);
   }

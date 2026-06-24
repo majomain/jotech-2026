@@ -109,13 +109,33 @@
   line-height: 1.55;
   color: var(--dim);
   text-align: right;
-  opacity: 0;
-  animation: fadeIn 1s ease 1.2s forwards;
+  min-height: calc(1.55em * 2);
+}
+
+.hero-subtext.is-typing::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 1px;
+  vertical-align: -0.08em;
+  background: currentColor;
+  animation: heroTypewriterCaret 0.9s step-end infinite;
+}
+
+.hero-subtext.is-typed::after {
+  display: none;
 }
 
 .hero-subtext .accent-word {
   color: var(--fg);
   font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .hero-subtext__break {
+    display: none;
+  }
 }
 
 .hero-collection {
@@ -183,6 +203,17 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+@keyframes heroTypewriterCaret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes heroCarousel {
