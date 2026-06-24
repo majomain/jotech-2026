@@ -47,8 +47,9 @@
 }
 
 .wcard {
-  flex: 0 0 42vw;
-  height: 64vh;
+  flex: 0 0 min(42vw, 58vh);
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -82,6 +83,29 @@
   inset: 0;
   background: linear-gradient(180deg, var(--wcard-ov-start), var(--wcard-ov-end));
   z-index: 1;
+}
+
+.wcard-icon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 6% 4% 28%;
+  pointer-events: none;
+}
+
+.wcard-icon__img {
+  width: min(77%, 320px);
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wcard:hover .wcard-icon__img {
+  transform: scale(1.03) translateY(-3px);
 }
 
 .wcard .body {

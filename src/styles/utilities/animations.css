@@ -29,7 +29,7 @@
     mask-image: none;
   }
 
-  .hero-subtext.is-typing::after {
+  .hero-subtext__caret {
     display: none;
   }
 

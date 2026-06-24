@@ -1,5 +1,6 @@
 .founder-header {
   margin-bottom: clamp(40px, 6vw, 64px);
+  text-transform: none;
 }
 
 .founder__grid {

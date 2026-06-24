@@ -1,10 +1,22 @@
 import { workItems } from '../data/work.js';
+import { renderWorkCardIcon } from './icons/WorkCardIcon.js';
+
+function renderCardIcon(item) {
+  if (!item.icon) return '';
+
+  return [
+    '  <div class="wcard-icon" aria-hidden="true">',
+    `    ${renderWorkCardIcon(item.icon)}`,
+    '  </div>',
+  ].join('\n');
+}
 
 function renderCard(item) {
   return [
     '<div class="wcard">',
     `  <div class="bg"></div>`,
     '  <div class="ov"></div>',
+    renderCardIcon(item),
     '  <div class="body">',
     `    <span class="kick">${item.kicker}</span>`,
     `    <h3>${item.title}</h3>`,

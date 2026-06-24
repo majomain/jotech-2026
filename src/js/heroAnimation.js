@@ -49,17 +49,30 @@ function initHeroSubtextTypewriter(root) {
   subtext.innerHTML = '';
   subtext.classList.add('is-typing');
 
+  const caret = document.createElement('span');
+  caret.className = 'hero-subtext__caret';
+  caret.setAttribute('aria-hidden', 'true');
+
   const stack = [subtext];
+  subtext.appendChild(caret);
+
   let tokenIndex = 0;
   let textBuffer = '';
 
+  const currentParent = () => stack[stack.length - 1];
+
+  const placeCaret = () => {
+    currentParent().appendChild(caret);
+  };
+
   const flushTextBuffer = () => {
     if (!textBuffer) return;
-    stack[stack.length - 1].appendChild(document.createTextNode(textBuffer));
+    currentParent().insertBefore(document.createTextNode(textBuffer), caret);
     textBuffer = '';
   };
 
   const finish = () => {
+    caret.remove();
     subtext.classList.remove('is-typing');
     subtext.classList.add('is-typed');
   };
@@ -84,15 +97,17 @@ function initHeroSubtextTypewriter(root) {
       if (token.element) {
         const node = document.createElement(token.element);
         if (token.className) node.className = token.className;
-        stack[stack.length - 1].appendChild(node);
+        currentParent().insertBefore(node, caret);
         if (!VOID_ELEMENTS.has(token.element)) {
           stack.push(node);
+          placeCaret();
         }
         continue;
       }
 
       if (token.close) {
         stack.pop();
+        placeCaret();
       }
     }
 

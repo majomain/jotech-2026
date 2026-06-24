@@ -1,22 +1,26 @@
 export const workItems = [
   {
     kicker: 'Brand + Web',
-    title: 'studio rebrand & launch',
+    title: 'website design and launch',
     description: 'Identity system, narrative framework, and a launch experience that converts.',
+    icon: 'https://assets.jotech.co/cursor-webstore-edit.png',
   },
   {
-    kicker: 'Campaign',
-    title: 'ai growth sprint',
-    description: 'ICP analytics turned into a multi-channel push.',
+    kicker: 'Marketing + Digital',
+    title: 'unlock growth and reach',
+    description: 'Targeted campaigns to drive engagement and maximize ROI across key channels.',
+    icon: 'https://assets.jotech.co/cursor-growth%2Breach-edit.png',
   },
   {
-    kicker: 'Product',
-    title: 'saas dashboard redesign',
-    description: 'Complex data, made calm and legible.',
+    kicker: 'UI/UX',
+    title: 'interface design and flows',
+    description: 'User journeys refined into clear, confident experiences.',
+    icon: 'https://assets.jotech.co/cursor-ui-design.png',
   },
   {
-    kicker: 'Identity',
-    title: 'founder personal brand',
-    description: 'Positioning, visuals, and voice in one system.',
+    kicker: 'Brand Assets',
+    title: 'content creation',
+    description: 'Positioning, visuals, and voice in one system—with professional video and photo production.',
+    icon: 'https://assets.jotech.co/cursor-content-creation-edit.png',
   },
 ];

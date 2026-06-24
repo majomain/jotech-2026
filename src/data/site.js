@@ -5,6 +5,6 @@ export const site = {
   logoUrlDark: 'https://assets.jotech.co/jotech-alt-logo-blk.svg',
   copyright: '© 2026 JOTECH — Design + Narrative.',
   email: 'jacob@jotech.co',
-  contactUrl: 'https://jotech.co/contact/',
+  contactUrl: 'mailto:jacob@jotech.co',
   linkedInUrl: 'https://www.linkedin.com/in/jacob-jotech/',
 };
