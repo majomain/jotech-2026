@@ -6,6 +6,18 @@ export const workItems = [
     icon: 'https://assets.jotech.co/cursor-webstore-edit.png',
   },
   {
+    kicker: 'E-commerce',
+    title: 'store migration',
+    description: 'A streamlined WordPress to Shopify migration—catalog, content, and checkout rebuilt without the chaos.',
+    icon: 'https://assets.jotech.co/cursor-migration-bridge.png',
+  },
+  {
+    kicker: 'Brand Assets',
+    title: 'content creation',
+    description: 'Positioning, visuals, and voice in one system—with professional video and photo production.',
+    icon: 'https://assets.jotech.co/cursor-content-creation-edit.png',
+  },
+  {
     kicker: 'Marketing + Digital',
     title: 'unlock growth and reach',
     description: 'Targeted campaigns to drive engagement and maximize ROI across key channels.',
@@ -16,11 +28,5 @@ export const workItems = [
     title: 'interface design and flows',
     description: 'User journeys refined into clear, confident experiences.',
     icon: 'https://assets.jotech.co/cursor-ui-design.png',
-  },
-  {
-    kicker: 'Brand Assets',
-    title: 'content creation',
-    description: 'Positioning, visuals, and voice in one system—with professional video and photo production.',
-    icon: 'https://assets.jotech.co/cursor-content-creation-edit.png',
   },
 ];
