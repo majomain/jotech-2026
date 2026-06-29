@@ -22,7 +22,7 @@ export function renderLogo(className, { height = 72, link = true, wordmark = fal
     '  <span class="site-logo__mark">',
     `    ${renderLogoImages(height)}`,
     '  </span>',
-    wordmark ? `  <span class="site-logo__wordmark">${name}</span>` : '',
+    wordmark ? `  <span class="site-logo__wordmark" style="font-weight: bold;">${name}</span>` : '',
     '</span>',
   ]
     .filter(Boolean)
