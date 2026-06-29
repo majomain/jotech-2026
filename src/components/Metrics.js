@@ -5,7 +5,11 @@ export function renderMetrics() {
     .map(
       (m) => `
     <div class="metric">
-      <div class="num" data-count="${m.count}" data-suffix="${m.suffix}">0</div>
+      ${
+        m.display
+          ? `<div class="num">${m.display}</div>`
+          : `<div class="num" data-count="${m.count}" data-suffix="${m.suffix}">0</div>`
+      }
       <div class="lbl">${m.label}</div>
     </div>`
     )
