@@ -1,4 +1,8 @@
 const DRAG_THRESHOLD = 5;
+/** Touch drags move the track farther per finger pixel than mouse. */
+const TOUCH_DRAG_MULTIPLIER = 2;
+/** Extra coast distance after a quick touch flick (px per px/ms). */
+const TOUCH_THROW_MS = 320;
 
 /**
  * Portfolio preview carousel: video visibility, hover pause (CSS), drag to scrub.
@@ -36,6 +40,14 @@ export function initHeroCarousel(root = document) {
   let dragDistance = 0;
   let startX = 0;
   let startOffset = 0;
+  let currentOffset = 0;
+  let activePointerType = 'mouse';
+  let lastMoveX = 0;
+  let lastMoveTime = 0;
+  let velocityX = 0;
+  let throwFrame = 0;
+
+  const dragMultiplier = () => (activePointerType === 'touch' ? TOUCH_DRAG_MULTIPLIER : 1);
 
   const measure = () => {
     loopWidth = track.scrollWidth / 2;
@@ -55,8 +67,52 @@ export function initHeroCarousel(root = document) {
   };
 
   const applyOffset = (x) => {
+    currentOffset = normalizeOffset(x);
     track.style.animation = 'none';
-    track.style.transform = `translate3d(${normalizeOffset(x)}px, 0, 0)`;
+    track.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+  };
+
+  const cancelThrow = () => {
+    if (throwFrame) {
+      cancelAnimationFrame(throwFrame);
+      throwFrame = 0;
+    }
+  };
+
+  const applyTouchThrow = () => {
+    if (activePointerType !== 'touch' || Math.abs(velocityX) < 0.2) {
+      endDrag(true);
+      return;
+    }
+
+    const from = currentOffset;
+    const throwDistance = velocityX * TOUCH_THROW_MS * dragMultiplier();
+    const to = normalizeOffset(from + throwDistance);
+    const duration = 260;
+    const start = performance.now();
+
+    carousel.classList.remove('is-dragging');
+    isDragging = false;
+    track.style.animationPlayState = 'paused';
+
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - (1 - t) ** 3;
+      currentOffset = from + (to - from) * eased;
+      track.style.animation = 'none';
+      track.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+
+      if (t < 1) {
+        throwFrame = requestAnimationFrame(tick);
+        return;
+      }
+
+      throwFrame = 0;
+      currentOffset = to;
+      resumeAnimation();
+    };
+
+    throwFrame = requestAnimationFrame(tick);
   };
 
   const resumeAnimation = () => {
@@ -74,6 +130,7 @@ export function initHeroCarousel(root = document) {
   };
 
   const endDrag = (resume) => {
+    cancelThrow();
     if (isDragging) {
       if (resume) resumeAnimation();
       carousel.classList.remove('is-dragging');
@@ -85,11 +142,17 @@ export function initHeroCarousel(root = document) {
   const onPointerDown = (e) => {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
 
+    cancelThrow();
     measure();
+    activePointerType = e.pointerType;
     isDragging = false;
     dragDistance = 0;
     startX = e.clientX;
     startOffset = readOffset();
+    currentOffset = startOffset;
+    lastMoveX = e.clientX;
+    lastMoveTime = performance.now();
+    velocityX = 0;
     track.style.animationPlayState = 'paused';
 
     try {
@@ -102,15 +165,26 @@ export function initHeroCarousel(root = document) {
   const onPointerMove = (e) => {
     if (!carousel.hasPointerCapture(e.pointerId)) return;
 
-    const dx = e.clientX - startX;
-    dragDistance = Math.max(dragDistance, Math.abs(dx));
+    const now = performance.now();
+    const dt = now - lastMoveTime;
+    if (dt > 0) {
+      const instantVelocity = (e.clientX - lastMoveX) / dt;
+      velocityX = velocityX * 0.55 + instantVelocity * 0.45;
+    }
+    lastMoveX = e.clientX;
+    lastMoveTime = now;
 
-    if (!isDragging && Math.abs(dx) < DRAG_THRESHOLD) return;
+    const rawDx = e.clientX - startX;
+    const dx = rawDx * dragMultiplier();
+    dragDistance = Math.max(dragDistance, Math.abs(rawDx));
+
+    if (!isDragging && Math.abs(rawDx) < DRAG_THRESHOLD) return;
 
     if (!isDragging) {
       isDragging = true;
       carousel.classList.add('is-dragging');
       startOffset = readOffset();
+      currentOffset = startOffset;
     }
 
     e.preventDefault();
@@ -124,6 +198,11 @@ export function initHeroCarousel(root = document) {
       carousel.releasePointerCapture(e.pointerId);
     } catch {
       /* ignore */
+    }
+
+    if (isDragging && activePointerType === 'touch') {
+      applyTouchThrow();
+      return;
     }
 
     endDrag(isDragging);

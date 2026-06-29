@@ -33,12 +33,12 @@ export const heroPreview = {
       height: 9,
     },
     {
-      id: 'asoc',
+      id: 'arkim-ai-home',
       type: 'image',
-      src: 'https://assets.jotech.co/port-asoc-page-1.png',
-      alt: 'A Scattering of Clouds book design',
-      width: 4000,
-      height: 2250,
+      src: 'https://assets.jotech.co/port-arkim-ai-home.png',
+      alt: 'Arkim AI website',
+      width: 2916,
+      height: 1640,
     },
     {
       id: 'asoc-slide-2',
