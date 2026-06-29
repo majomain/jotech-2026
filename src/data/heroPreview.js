@@ -9,6 +9,14 @@ export const heroPreview = {
       height: 1559,
     },
     {
+      id: 'raygriffiths',
+      type: 'image',
+      src: 'https://assets.jotech.co/port-raygriffiths-home.png',
+      alt: 'Ray Griffiths Jewelry website',
+      width: 2944,
+      height: 1656,
+    },
+    {
       id: 'rvhu',
       type: 'image',
       src: 'https://assets.jotech.co/port-rvhu-album-cover.jpg',
