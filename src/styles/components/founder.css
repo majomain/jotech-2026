@@ -99,10 +99,9 @@
 }
 
 .founder__headline em {
-  font-family: var(--font-accent);
-  font-style: var(--accent-style);
-  font-weight: 400;
-  letter-spacing: var(--accent-track);
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
   color: var(--acc2);
 }
 

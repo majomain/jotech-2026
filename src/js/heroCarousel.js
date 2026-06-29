@@ -133,6 +133,15 @@ export function initHeroCarousel(root = document) {
   carousel.addEventListener('pointermove', onPointerMove);
   carousel.addEventListener('pointerup', onPointerUp);
   carousel.addEventListener('pointercancel', onPointerUp);
-  window.addEventListener('resize', measure, { passive: true });
+
+  let lastMeasureWidth = window.innerWidth;
+  const onResize = () => {
+    const width = window.innerWidth;
+    if (width === lastMeasureWidth) return;
+    lastMeasureWidth = width;
+    measure();
+  };
+
+  window.addEventListener('resize', onResize, { passive: true });
   measure();
 }

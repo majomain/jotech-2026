@@ -287,6 +287,9 @@
   }
 
   .hero-stage {
+    /* Locked at init — avoids carousel jump when mobile browser chrome animates */
+    height: var(--hero-lock-h, 100svh);
+    max-height: var(--hero-lock-h, 100svh);
     row-gap: clamp(10px, 1.8vh, 16px);
   }
 
