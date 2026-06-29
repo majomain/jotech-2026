@@ -7,7 +7,7 @@ export const founder = {
   role: 'Founder & Creative Director',
   headline: 'every brand has a story — I help teams tell it <em>well.</em>',
   bio:
-    'JOTECH grew out of a belief that narrative builds community, and community creates culture. I partner with B2B brands to shape that story through design, development, and the kind of visual clarity that turns attention into trust.',
+    'JOTECH grew out of a belief that narrative builds community, and community creates culture. I partner with B2C and B2B brands to shape that story through design, development, and the kind of visual storytelling that turns attention into trust.',
   linkedInUrl: site.linkedInUrl,
   email: site.email,
 };
