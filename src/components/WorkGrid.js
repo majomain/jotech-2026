@@ -6,7 +6,7 @@ function renderCardIcon(item) {
 
   return [
     '  <div class="wcard-icon" aria-hidden="true">',
-    `    ${renderWorkCardIcon(item.icon)}`,
+    `    ${renderWorkCardIcon(item.icon, item.iconSize)}`,
     '  </div>',
   ].join('\n');
 }

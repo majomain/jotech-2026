@@ -1,25 +1,37 @@
-import { founder } from '../data/founder.js';
+import { team } from '../data/founder.js';
 import { linkAttrs } from '../utils/html.js';
+
+function renderMember(member, index) {
+  const flip = index % 2 === 1;
+  const actions = [
+    `        <a class="founder__link" ${linkAttrs({ href: member.linkedInUrl, external: true })}>Connect on LinkedIn →</a>`,
+  ];
+  if (member.email) {
+    actions.push(`        <a class="founder__link" href="mailto:${member.email}">Email →</a>`);
+  }
+  return [
+    `  <div class="founder__grid${flip ? ' founder__grid--flip' : ''}">`,
+    '    <figure class="founder__portrait reveal">',
+    `      <img src="${member.image}" alt="${member.imageAlt}" width="640" height="640" loading="lazy" decoding="async">`,
+    '    </figure>',
+    '    <div class="founder__body reveal">',
+    `      <p class="founder__role">${member.role}</p>`,
+    `      <h2 class="founder__name">${member.name}</h2>`,
+    `      <p class="founder__headline">${member.headline}</p>`,
+    `      <p class="founder__bio">${member.bio}</p>`,
+    `      <div class="founder__actions">`,
+    ...actions,
+    '      </div>',
+    '    </div>',
+    '  </div>',
+  ].join('\n');
+}
 
 export function renderFounder() {
   return [
     '<section class="founder" id="founder">',
     '  <div class="sec-label founder-header">TEAM</div>',
-    '  <div class="founder__grid">',
-    '    <figure class="founder__portrait reveal">',
-    `      <img src="${founder.image}" alt="${founder.imageAlt}" width="640" height="640" loading="lazy" decoding="async">`,
-    '    </figure>',
-    '    <div class="founder__body reveal">',
-    `      <p class="founder__role">${founder.role}</p>`,
-    `      <h2 class="founder__name">${founder.name}</h2>`,
-    `      <p class="founder__headline">${founder.headline}</p>`,
-    `      <p class="founder__bio">${founder.bio}</p>`,
-    `      <div class="founder__actions">`,
-    `        <a class="founder__link" ${linkAttrs({ href: founder.linkedInUrl, external: true })}>Connect on LinkedIn →</a>`,
-    `        <a class="founder__link" href="mailto:${founder.email}">Email →</a>`,
-    '      </div>',
-    '    </div>',
-    '  </div>',
+    ...team.map(renderMember),
     '</section>',
   ].join('\n');
 }

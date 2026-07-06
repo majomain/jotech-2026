@@ -10,6 +10,22 @@
   align-items: center;
 }
 
+.founder__grid + .founder__grid {
+  margin-top: clamp(72px, 10vw, 140px);
+}
+
+.founder__grid--flip {
+  grid-template-columns: 1fr minmax(240px, 380px);
+}
+
+.founder__grid--flip .founder__portrait {
+  order: 2;
+}
+
+.founder__grid--flip .founder__body {
+  justify-self: end;
+}
+
 .founder__portrait {
   position: relative;
   margin: 0;

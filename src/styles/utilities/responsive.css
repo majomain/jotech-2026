@@ -26,11 +26,6 @@
     width: 100%;
   }
 
-  .wcard {
-    aspect-ratio: 1 / 1;
-    height: auto;
-  }
-
   .svc {
     grid-template-columns: 40px 1fr auto;
     gap: 16px;
@@ -102,8 +97,16 @@
     max-width: 320px;
   }
 
+  .founder__grid--flip .founder__portrait {
+    order: 0;
+  }
+
   .founder__body {
     max-width: none;
+  }
+
+  .founder__grid--flip .founder__body {
+    justify-self: start;
   }
 }
 

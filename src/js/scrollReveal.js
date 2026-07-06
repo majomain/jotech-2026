@@ -6,7 +6,7 @@ const STATEMENT_OPTIONS = { threshold: 0.35 };
  */
 export function initScrollReveal(root = document) {
   if (!('IntersectionObserver' in window)) {
-    root.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+    root.querySelectorAll('.reveal, .wcard').forEach((el) => el.classList.add('in'));
     root.getElementById?.('founder')?.classList.add('in');
     root.getElementById?.('statement')?.classList.add('in');
     return;
@@ -21,7 +21,8 @@ export function initScrollReveal(root = document) {
     });
   }, REVEAL_OPTIONS);
 
-  root.querySelectorAll('.reveal').forEach((el) => {
+  // Work cards join the same observer so their icons rise in as each card scrolls into view.
+  root.querySelectorAll('.reveal, .wcard').forEach((el) => {
     if (el.closest('#founder')) return;
     revealObserver.observe(el);
   });

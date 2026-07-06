@@ -3,10 +3,10 @@ export const heroPreview = {
     {
       id: 'mcveigh',
       type: 'image',
-      src: 'https://assets.jotech.co/port-j.mcveigh-site.png',
+      src: 'https://assets.jotech.co/port-JMcV-updated.png',
       alt: 'J. McVeigh Jewelry website',
-      width: 2994,
-      height: 1559,
+      width: 1920,
+      height: 1080,
     },
     {
       id: 'raygriffiths',

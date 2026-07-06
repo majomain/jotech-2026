@@ -37,4 +37,9 @@
     opacity: 1 !important;
     color: var(--fg) !important;
   }
+
+  .wcard-icon__img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
