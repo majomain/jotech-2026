@@ -35,13 +35,34 @@
   color: var(--dim);
 }
 
-.case-live {
+.cta-btn.case-live {
   margin-top: 44px;
-  background: var(--acc2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  transition:
+    border-color 0.3s,
+    color 0.3s,
+    background 0.3s;
 }
 
-.case-live:hover {
-  box-shadow: 0 0 40px color-mix(in srgb, var(--acc2) 40%, transparent);
+.cta-btn.case-live:hover {
+  border-color: var(--acc);
+  color: var(--acc);
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+[data-theme='dark'] .cta-btn.case-live {
+  border-color: rgba(247, 245, 240, 0.35);
+  color: var(--fg);
+}
+
+[data-theme='dark'] .cta-btn.case-live:hover {
+  border-color: var(--acc);
+  color: var(--acc);
 }
 
 .case-rule {

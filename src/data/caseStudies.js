@@ -8,7 +8,6 @@ export const caseStudies = [
     title: 'corporate website for a B2B AI company',
     documentTitle: 'Arkim AI — Case Study | JOTECH',
     summary: [
-      'A corporate website designed for an industrial AI platform that gives maintenance technicians senior-level diagnostic knowledge from day one — using the phone in their pocket as the sensor. The product tackles one of manufacturing\u2019s most urgent bottlenecks: a shrinking skilled workforce responsible for aging, increasingly complex equipment.',
       'The goal of the project was to translate a deeply technical product into a clear, credible story for plant managers and operations leadership — communicating value fast, building enterprise trust across regulated industries, and guiding decision-makers toward a consultation. Emphasis was placed on structured, role-based messaging for operators, technicians, and management, and a confident visual system that reflects precision and industrial-grade reliability.',
       'The result is a conversion-driven corporate presence that positions Arkim as the modern alternative to sensor-heavy legacy platforms — delivering value in week one, not month six.',
     ],
