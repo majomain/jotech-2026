@@ -1,0 +1,145 @@
+.case-page {
+  position: relative;
+  z-index: 1;
+}
+
+.case-header {
+  padding: calc(max(22px, env(safe-area-inset-top)) + var(--nav-logo-height) + 10vh) var(--pad-x) 0;
+  max-width: 1280px;
+}
+
+.case-header .sec-label {
+  margin-bottom: 28px;
+}
+
+.case-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 92px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  max-width: 16ch;
+}
+
+.case-summary {
+  margin-top: 44px;
+  max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.case-summary p {
+  font-size: clamp(17px, 1.1vw + 8px, 22px);
+  line-height: 1.55;
+  color: var(--dim);
+}
+
+.case-live {
+  margin-top: 44px;
+  background: var(--acc2);
+}
+
+.case-live:hover {
+  box-shadow: 0 0 40px color-mix(in srgb, var(--acc2) 40%, transparent);
+}
+
+.case-rule {
+  height: 1px;
+  background: var(--line);
+  margin: clamp(48px, 7vh, 80px) 0 0;
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: clamp(28px, 4vh, 44px) 0 0;
+}
+
+.case-meta__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-meta__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--mono-track);
+  text-transform: uppercase;
+  color: var(--acc);
+}
+
+.case-meta__value {
+  font-size: clamp(17px, 1vw + 8px, 20px);
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.case-cover {
+  margin-top: clamp(56px, 9vh, 100px);
+}
+
+.case-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vh, 56px);
+  padding: clamp(24px, 4vh, 56px) var(--pad-x) 0;
+}
+
+.case-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+
+.case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: clamp(64px, 10vh, 120px) var(--pad-x) 0;
+  padding: clamp(32px, 5vh, 48px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-next__label {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.case-next__arrow {
+  font-size: clamp(28px, 3.4vw, 56px);
+  line-height: 1;
+  color: var(--acc);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.case-next:hover .case-next__arrow {
+  transform: translateX(12px);
+}
+
+@media (max-width: 860px) {
+  .case-meta {
+    grid-template-columns: 1fr;
+  }
+}

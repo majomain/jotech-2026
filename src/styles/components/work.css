@@ -159,3 +159,110 @@
   max-width: 36ch;
   line-height: 1.5;
 }
+
+a.wcard {
+  display: block;
+  color: inherit;
+}
+
+.wcard-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--mono-track);
+  text-transform: uppercase;
+  color: var(--wcard-fg);
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+a.wcard:hover .wcard-link,
+.wcard:hover .wcard-link {
+  opacity: 1;
+  color: var(--acc);
+}
+
+button.wcard-link {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+button.wcard-link:focus {
+  outline: none;
+}
+
+button.wcard-link:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgba(8, 8, 12, 0.88);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal__dialog {
+  position: relative;
+  width: min(960px, 100%);
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  appearance: none;
+  border: 0;
+  background: none;
+  color: #f7f5f0;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.video-modal__close:hover {
+  opacity: 1;
+}
+
+.video-modal__iframe-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
+.video-modal__iframe-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body.modal-open {
+  overflow: hidden;
+}

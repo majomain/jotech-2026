@@ -44,15 +44,6 @@
     grid-template-columns: 1fr;
   }
 
-  .metric {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .metric:last-child {
-    border-bottom: none;
-  }
-
   .bigtype {
     padding: clamp(14vh, 18vh, 24vh) var(--pad-x);
   }

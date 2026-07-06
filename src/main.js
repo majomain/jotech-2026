@@ -1,5 +1,7 @@
 import './styles/main.css';
 import { renderApp } from './app.js';
+import { renderCaseStudyPage } from './components/CaseStudy.js';
+import { getCaseStudyByPath } from './data/caseStudies.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
 import { initNavScroll } from './js/navScroll.js';
@@ -12,10 +14,20 @@ import { initScrollEffects } from './js/scrollEffects.js';
 import { initScrollReveal } from './js/scrollReveal.js';
 import { initServicesAccordion } from './js/servicesAccordion.js';
 import { initRouting } from './js/routing.js';
+import { initVideoModal } from './js/videoModal.js';
 
 const app = document.getElementById('app');
+const caseStudy = getCaseStudyByPath(window.location.pathname);
 
-if (app) {
+if (app && caseStudy) {
+  document.title = caseStudy.documentTitle;
+  app.innerHTML = renderCaseStudyPage(caseStudy);
+
+  initTheme(document);
+  initNavMenu(document);
+  initNavScroll(document.querySelector('.site-nav'));
+  initScrollReveal(document);
+} else if (app) {
   app.innerHTML = renderApp();
 
   initTheme(document);
@@ -30,4 +42,5 @@ if (app) {
   initCounterAnimation(document);
   initServicesAccordion(document);
   initRouting(document);
+  initVideoModal(document);
 }
