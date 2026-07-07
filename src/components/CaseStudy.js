@@ -1,4 +1,4 @@
-import { renderFluidBackground } from './FluidBackground.js';
+import { renderFluidBackground, renderProgressBar } from './FluidBackground.js';
 import { renderNav } from './Nav.js';
 import { renderCTA } from './CTA.js';
 import { renderFooter } from './Footer.js';
@@ -21,6 +21,24 @@ function renderGalleryFigure(image) {
   ].join('\n');
 }
 
+function renderCaseNav(study) {
+  return [
+    '  <nav class="case-nav reveal" aria-label="Case study navigation">',
+    `    <a class="case-nav__back" ${linkAttrs(study.back)}>`,
+    '      <span class="case-nav__back-arrow" aria-hidden="true">&larr;</span>',
+    `      ${escapeHtml(study.back.label)}`,
+    '    </a>',
+    `    <a class="case-next" ${linkAttrs(study.next)}>`,
+    '      <span class="case-next__text">',
+    '        <span class="case-next__eyebrow">Next project</span>',
+    `        <span class="case-next__label">${escapeHtml(study.next.label)}</span>`,
+    '      </span>',
+    '      <span class="case-next__arrow" aria-hidden="true">&rarr;</span>',
+    '    </a>',
+    '  </nav>',
+  ].join('\n');
+}
+
 function renderHeader(study) {
   const summary = study.summary
     .map((paragraph) => `      <p>${escapeHtml(paragraph)}</p>`)
@@ -28,14 +46,14 @@ function renderHeader(study) {
 
   return [
     '  <header class="case-header">',
-    `    <div class="sec-label">${escapeHtml(study.label)}</div>`,
-    `    <h1>${escapeHtml(study.title)}</h1>`,
-    '    <div class="case-summary">',
+    `    <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
+    `    <h1 class="reveal">${escapeHtml(study.title)}</h1>`,
+    '    <div class="case-summary reveal">',
     summary,
     '    </div>',
-    `    <a class="cta-btn case-live" ${linkAttrs({ href: study.liveUrl, external: true })}>see live website</a>`,
+    `    <a class="cta-btn case-live reveal" ${linkAttrs({ href: study.liveUrl, external: true })}>see live website</a>`,
     '    <div class="case-rule" role="presentation"></div>',
-    '    <div class="case-meta">',
+    '    <div class="case-meta reveal">',
     renderMetaItem('Client', study.client),
     renderMetaItem('Service', study.service),
     renderMetaItem('Year', study.year),
@@ -56,10 +74,7 @@ function renderCaseStudy(study) {
     '  <div class="case-gallery">',
     gallery,
     '  </div>',
-    `  <a class="case-next" href="${escapeHtml(study.next.href)}">`,
-    `    <span class="case-next__label">${escapeHtml(study.next.label)}</span>`,
-    '    <span class="case-next__arrow" aria-hidden="true">&rarr;</span>',
-    '  </a>',
+    renderCaseNav(study),
     '</article>',
   ].join('\n');
 }
@@ -67,6 +82,7 @@ function renderCaseStudy(study) {
 export function renderCaseStudyPage(study) {
   return [
     renderFluidBackground(),
+    renderProgressBar(),
     '<div class="wrap">',
     renderNav(),
     '<main id="main" class="case-page">',

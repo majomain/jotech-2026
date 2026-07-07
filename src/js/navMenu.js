@@ -1,3 +1,5 @@
+import { closeNavWorkMenu } from './navWorkMenu.js';
+
 const MOBILE_BREAKPOINT = 860;
 
 export function initNavMenu(root = document) {
@@ -10,6 +12,7 @@ export function initNavMenu(root = document) {
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
     document.body.classList.remove('nav-lock');
+    closeNavWorkMenu();
   };
 
   toggle.addEventListener('click', () => {
@@ -20,7 +23,7 @@ export function initNavMenu(root = document) {
     document.body.classList.toggle('nav-lock', open);
   });
 
-  nav.querySelectorAll('.nav-links a').forEach((link) => {
+  nav.querySelectorAll('.nav-links a, .nav-item__link, .nav-item__panel a').forEach((link) => {
     link.addEventListener('click', close);
   });
 

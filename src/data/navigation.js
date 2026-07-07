@@ -10,4 +10,4 @@ export const navLinks = [
   { label: 'Contact', href: sections.contact },
 ];
 
-export const footerLinks = [{ label: 'Portfolio', href: sections.work }];
+export const footerLinks = [{ label: 'Work', href: sections.work }];

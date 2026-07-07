@@ -1,3 +1,5 @@
+import { sections } from './navigation.js';
+
 const ASSET_BASE = '/case-studies';
 
 export const caseStudies = [
@@ -7,6 +9,8 @@ export const caseStudies = [
     label: 'Case Study — Arkim AI',
     title: 'corporate website for a B2B AI company',
     documentTitle: 'Arkim AI — Case Study | JOTECH',
+    metaDescription:
+      "How JOTECH translated Arkim AI's technical B2B product into a clear, conversion-driven corporate website for plant managers and operations leaders.",
     summary: [
       'The goal of the project was to translate a deeply technical product into a clear, credible story for plant managers and operations leadership — communicating value fast, building enterprise trust across regulated industries, and guiding decision-makers toward a consultation. Emphasis was placed on structured, role-based messaging for operators, technicians, and management, and a confident visual system that reflects precision and industrial-grade reliability.',
       'The result is a conversion-driven corporate presence that positions Arkim as the modern alternative to sensor-heavy legacy platforms — delivering value in week one, not month six.',
@@ -49,7 +53,6 @@ export const caseStudies = [
         alt: 'Arkim AI site footer',
       },
     ],
-    next: { label: 'next project', href: '/work/jmcveigh' },
   },
   {
     slug: 'jmcveigh',
@@ -57,6 +60,8 @@ export const caseStudies = [
     label: 'Case Study — J. McVeigh Jewelry',
     title: 'store migration for a fine jewelry boutique',
     documentTitle: 'J. McVeigh Jewelry — Case Study | JOTECH',
+    metaDescription:
+      'How JOTECH migrated J. McVeigh Jewelry to Shopify — preserving brand tone while rebuilding catalog, checkout, and merchandising for a fine jewelry boutique.',
     summary: [
       'The goal of the project was to move the full product catalog onto Shopify without losing momentum — preserving collections, product detail, and brand tone while rebuilding checkout, navigation, and content structure from the ground up. Emphasis was placed on clear merchandising for new arrivals and birthstone collections, event promotion for in-store appearances, and a polished product page template suited to one-of-a-kind inventory with rich imagery and stone attributes.',
       'The result is a streamlined Shopify storefront that supports ongoing merchandising, appointment scheduling, and discovery — giving J. McVeigh Jewelry a modern e-commerce foundation built to scale with new designers, seasonal collections, and in-store events.',
@@ -99,11 +104,28 @@ export const caseStudies = [
         alt: 'J. McVeigh Jewelry site footer',
       },
     ],
-    next: { label: 'next project', href: '/work' },
   },
 ];
 
+export const caseStudyNavItems = caseStudies.map(({ client, path }) => ({
+  label: client,
+  href: path,
+}));
+
+function withNavigation(study, index) {
+  const nextStudy = caseStudies[(index + 1) % caseStudies.length];
+
+  return {
+    ...study,
+    back: { label: 'back to work', href: sections.work },
+    next: { label: nextStudy.client, href: nextStudy.path },
+  };
+}
+
 export function getCaseStudyByPath(pathname) {
   const normalized = pathname.replace(/\/+$/, '') || '/';
-  return caseStudies.find((study) => study.path === normalized) ?? null;
+  const index = caseStudies.findIndex((study) => study.path === normalized);
+  if (index === -1) return null;
+
+  return withNavigation(caseStudies[index], index);
 }

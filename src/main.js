@@ -2,8 +2,10 @@ import './styles/main.css';
 import { renderApp } from './app.js';
 import { renderCaseStudyPage } from './components/CaseStudy.js';
 import { getCaseStudyByPath } from './data/caseStudies.js';
+import { setCaseStudyMeta } from './utils/meta.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
+import { initNavWorkMenu } from './js/navWorkMenu.js';
 import { initNavScroll } from './js/navScroll.js';
 import { initHeroAnimation } from './js/heroAnimation.js';
 import { initHeroFit } from './js/heroFit.js';
@@ -20,18 +22,21 @@ const app = document.getElementById('app');
 const caseStudy = getCaseStudyByPath(window.location.pathname);
 
 if (app && caseStudy) {
-  document.title = caseStudy.documentTitle;
+  setCaseStudyMeta(caseStudy);
   app.innerHTML = renderCaseStudyPage(caseStudy);
 
   initTheme(document);
   initNavMenu(document);
+  initNavWorkMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
+  initScrollEffects(document);
   initScrollReveal(document);
 } else if (app) {
   app.innerHTML = renderApp();
 
   initTheme(document);
   initNavMenu(document);
+  initNavWorkMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
   initHeroFit(document);
   initHeroAnimation(document);
