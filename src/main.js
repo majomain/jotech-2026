@@ -5,7 +5,6 @@ import { getCaseStudyByPath } from './data/caseStudies.js';
 import { setCaseStudyMeta } from './utils/meta.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
-import { initNavWorkMenu } from './js/navWorkMenu.js';
 import { initNavScroll } from './js/navScroll.js';
 import { initHeroAnimation } from './js/heroAnimation.js';
 import { initHeroFit } from './js/heroFit.js';
@@ -27,7 +26,6 @@ if (app && caseStudy) {
 
   initTheme(document);
   initNavMenu(document);
-  initNavWorkMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
   initScrollEffects(document);
   initScrollReveal(document);
@@ -36,7 +34,6 @@ if (app && caseStudy) {
 
   initTheme(document);
   initNavMenu(document);
-  initNavWorkMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
   initHeroFit(document);
   initHeroAnimation(document);

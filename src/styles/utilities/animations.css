@@ -4,7 +4,26 @@
   }
 }
 
+.reveal {
+  opacity: 0.4;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition:
+    opacity var(--duration-reveal) var(--ease-editorial),
+    transform var(--duration-reveal) var(--ease-editorial);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.in,
+.reveal-group.in .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   *,
   *::before,
   *::after {

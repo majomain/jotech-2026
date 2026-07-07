@@ -5,8 +5,8 @@ export function renderBigType() {
   const accentMarkup = accent ? `<span class="serif">${accent}</span>` : '';
 
   return [
-    '<div class="bigtype">',
-    `  <p class="words" id="words">${text}${accentMarkup}${suffix}</p>`,
+    '<div class="bigtype reveal-group">',
+    `  <p class="words reveal" id="words">${text}${accentMarkup}${suffix}</p>`,
     '</div>',
   ].join('\n');
 }

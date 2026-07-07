@@ -3,8 +3,8 @@ import { metrics } from '../data/metrics.js';
 export function renderMetrics() {
   const items = metrics
     .map(
-      (m) => `
-    <div class="metric">
+      (m, i) => `
+    <div class="metric reveal" style="--reveal-delay: ${80 + i * 80}ms">
       ${
         m.display
           ? `<div class="num">${m.display}</div>`
@@ -16,8 +16,8 @@ export function renderMetrics() {
     .join('');
 
   return [
-    '<section>',
-    '  <div class="sec-label metrics-header">By the numbers</div>',
+    '<section class="reveal-group">',
+    '  <div class="sec-label metrics-header reveal">By the numbers</div>',
     `  <div class="metrics">${items}`,
     '  </div>',
     '</section>',

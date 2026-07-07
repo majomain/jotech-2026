@@ -12,6 +12,11 @@
   --nav-pad-block: 22px;
   --nav-clearance: 18px;
 
+  --ease-editorial: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-reveal: 1000ms;
+  --reveal-distance: 18px;
+  --reveal-stagger: 60ms;
+
   color-scheme: light dark;
 }
 

@@ -7,7 +7,7 @@ export const caseStudies = [
     slug: 'arkim',
     path: '/work/arkim',
     label: 'Case Study — Arkim AI',
-    title: 'corporate website for a B2B AI company',
+    title: 'digital assets for a B2B AI company',
     documentTitle: 'Arkim AI — Case Study | JOTECH',
     metaDescription:
       "How JOTECH translated Arkim AI's technical B2B product into a clear, conversion-driven corporate website for plant managers and operations leaders.",
@@ -19,11 +19,19 @@ export const caseStudies = [
     client: 'Arkim AI',
     service: 'Web Design & Development',
     year: '2026',
+    heroVisual: {
+      src: 'https://assets.jotech.co/arkim-3d-classic-logo.jpg',
+      alt: 'Arkim AI 3D logo',
+    },
     cover: {
       src: `${ASSET_BASE}/arkim/01-hero.jpg`,
       alt: 'Arkim AI homepage hero — industrial maintenance, re-leveraged',
     },
     gallery: [
+      {
+        embedUrl: 'https://player.vimeo.com/video/1177525108?h=5344a5d7e1',
+        title: 'Arkim AI client video',
+      },
       {
         src: `${ASSET_BASE}/arkim/02-why-arkim.jpg`,
         alt: 'Why Arkim section — the maintenance workforce is shrinking',
@@ -35,10 +43,6 @@ export const caseStudies = [
       {
         src: `${ASSET_BASE}/arkim/04-who-uses-arkim.jpg`,
         alt: 'Who uses Arkim — operators, technicians, and management on one platform',
-      },
-      {
-        src: `${ASSET_BASE}/arkim/05-roi-comparison.jpg`,
-        alt: 'ROI comparison — Arkim versus legacy sensor platforms',
       },
       {
         src: `${ASSET_BASE}/arkim/06-enterprise-ready.jpg`,
@@ -106,11 +110,6 @@ export const caseStudies = [
     ],
   },
 ];
-
-export const caseStudyNavItems = caseStudies.map(({ client, path }) => ({
-  label: client,
-  href: path,
-}));
 
 function withNavigation(study, index) {
   const nextStudy = caseStudies[(index + 1) % caseStudies.length];

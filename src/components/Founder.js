@@ -29,8 +29,8 @@ function renderMember(member, index) {
 
 export function renderFounder() {
   return [
-    '<section class="founder" id="founder">',
-    '  <div class="sec-label founder-header">TEAM</div>',
+    '<section class="founder reveal-group" id="founder">',
+    '  <div class="sec-label founder-header reveal">TEAM</div>',
     ...team.map(renderMember),
     '</section>',
   ].join('\n');

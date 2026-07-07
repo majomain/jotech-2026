@@ -160,9 +160,28 @@
   line-height: 1.5;
 }
 
-a.wcard {
+a.wcard,
+button.wcard {
   display: block;
   color: inherit;
+}
+
+button.wcard {
+  appearance: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: inherit;
+  font: inherit;
+}
+
+button.wcard:focus {
+  outline: none;
+}
+
+button.wcard:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
 }
 
 .wcard-link {
@@ -177,28 +196,9 @@ a.wcard {
   transition: opacity 0.3s;
 }
 
-a.wcard:hover .wcard-link,
 .wcard:hover .wcard-link {
   opacity: 1;
   color: var(--acc);
-}
-
-button.wcard-link {
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-}
-
-button.wcard-link:focus {
-  outline: none;
-}
-
-button.wcard-link:focus-visible {
-  outline: 2px solid var(--acc);
-  outline-offset: 2px;
 }
 
 .video-modal {
@@ -252,7 +252,6 @@ button.wcard-link:focus-visible {
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--line);
   background: #000;
 }
 

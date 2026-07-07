@@ -1,7 +1,7 @@
 import { escapeHtml } from '../utils/html.js';
 
 /**
- * Opens Vimeo embeds from work card buttons in a lightweight modal.
+ * Opens Vimeo embeds from work cards in a lightweight modal.
  */
 export function initVideoModal(root = document) {
   const modal = root.getElementById('video-modal');
@@ -39,11 +39,10 @@ export function initVideoModal(root = document) {
     lastTrigger = null;
   };
 
-  root.querySelectorAll('[data-video-modal]').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
+  root.querySelectorAll('[data-video-modal]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
       event.preventDefault();
-      event.stopPropagation();
-      open(btn.dataset.embedUrl, btn.getAttribute('aria-label'), btn);
+      open(trigger.dataset.embedUrl, trigger.getAttribute('aria-label'), trigger);
     });
   });
 

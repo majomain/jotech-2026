@@ -49,13 +49,13 @@
   }
 
   .cta {
+    --cta-gap: 36px;
     padding: 18vh var(--pad-x);
   }
 
   .cta-btn {
     padding: 18px 36px;
     font-size: 13px;
-    margin-top: 36px;
     min-height: 48px;
   }
 

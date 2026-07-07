@@ -13,12 +13,34 @@ function renderMetaItem(label, value) {
   ].join('\n');
 }
 
+function renderGalleryVideo(item) {
+  return [
+    '    <figure class="case-figure case-figure--video reveal">',
+    '      <div class="case-video">',
+    '        <iframe',
+    `          title="${escapeHtml(item.title ?? 'Video')}"`,
+    `          src="${escapeHtml(item.embedUrl)}"`,
+    '          frameborder="0"',
+    '          referrerpolicy="strict-origin-when-cross-origin"',
+    '          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"',
+    '          allowfullscreen',
+    '        ></iframe>',
+    '      </div>',
+    '    </figure>',
+  ].join('\n');
+}
+
 function renderGalleryFigure(image) {
   return [
     '    <figure class="case-figure reveal">',
     `      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async">`,
     '    </figure>',
   ].join('\n');
+}
+
+function renderGalleryItem(item) {
+  if (item.embedUrl) return renderGalleryVideo(item);
+  return renderGalleryFigure(item);
 }
 
 function renderCaseNav(study) {
@@ -39,15 +61,38 @@ function renderCaseNav(study) {
   ].join('\n');
 }
 
+function renderHeroVisual(visual) {
+  return [
+    '      <figure class="case-hero-aside reveal">',
+    `        <img src="${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}" decoding="async">`,
+    '      </figure>',
+  ].join('\n');
+}
+
 function renderHeader(study) {
   const summary = study.summary
     .map((paragraph) => `      <p>${escapeHtml(paragraph)}</p>`)
     .join('\n');
 
-  return [
-    '  <header class="case-header">',
+  const heroMain = [
     `    <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
     `    <h1 class="reveal">${escapeHtml(study.title)}</h1>`,
+  ].join('\n');
+
+  const heroBlock = study.heroVisual
+    ? [
+        '    <div class="case-hero-banner">',
+        '      <div class="case-hero-main">',
+        heroMain,
+        '      </div>',
+        renderHeroVisual(study.heroVisual),
+        '    </div>',
+      ].join('\n')
+    : heroMain;
+
+  return [
+    '  <header class="case-header">',
+    heroBlock,
     '    <div class="case-summary reveal">',
     summary,
     '    </div>',
@@ -63,7 +108,7 @@ function renderHeader(study) {
 }
 
 function renderCaseStudy(study) {
-  const gallery = study.gallery.map(renderGalleryFigure).join('\n');
+  const gallery = study.gallery.map(renderGalleryItem).join('\n');
 
   return [
     '<article class="case">',

@@ -158,23 +158,14 @@
   gap: 14px;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+.founder.reveal-group.in .founder-header.reveal {
+  --reveal-delay: 0ms;
 }
 
-.reveal.in {
-  opacity: 1;
-  transform: none;
+.founder.reveal-group.in .founder__portrait.reveal {
+  --reveal-delay: 80ms;
 }
 
-.founder.in .founder__portrait.reveal {
-  transition-delay: 0.08s;
-}
-
-.founder.in .founder__body.reveal {
-  transition-delay: 0.2s;
+.founder.reveal-group.in .founder__body.reveal {
+  --reveal-delay: 200ms;
 }

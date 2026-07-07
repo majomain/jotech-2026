@@ -13,33 +13,34 @@ function renderCardIcon(item) {
 }
 
 function renderCardLink(item) {
-  if (item.videoModal) {
-    const { embedUrl, title } = item.videoModal;
-    const label = item.linkLabel ?? 'watch video';
-
-    return [
-      '    <button',
-      '      type="button"',
-      '      class="wcard-link"',
-      '      data-video-modal',
-      `      data-embed-url="${escapeHtml(embedUrl)}"`,
-      `      aria-label="${escapeHtml(title ?? label)}"`,
-      '    >',
-      `      ${label} &rarr;`,
-      '    </button>',
-    ].join('\n');
-  }
-
-  if (item.href) {
-    return `    <span class="wcard-link">${item.linkLabel ?? 'view case study'} &rarr;</span>`;
+  if (item.href || item.videoModal) {
+    const label = item.linkLabel ?? (item.videoModal ? 'watch video' : 'view case study');
+    return `    <span class="wcard-link">${label} &rarr;</span>`;
   }
 
   return '';
 }
 
 function renderCard(item) {
-  const tag = item.href ? 'a' : 'div';
-  const attrs = item.href ? ` href="${item.href}"` : '';
+  let tag = 'div';
+  let attrs = '';
+
+  if (item.href) {
+    tag = 'a';
+    attrs = ` href="${item.href}"`;
+  } else if (item.videoModal) {
+    const { embedUrl, title } = item.videoModal;
+    const label = item.linkLabel ?? 'watch video';
+
+    tag = 'button';
+    attrs = [
+      ' type="button"',
+      ' data-video-modal',
+      ` data-embed-url="${escapeHtml(embedUrl)}"`,
+      ` aria-label="${escapeHtml(title ?? label)}"`,
+    ].join('');
+  }
+
   const link = renderCardLink(item);
   const linkBlock = link ? `${link}\n` : '';
 
@@ -75,9 +76,9 @@ export function renderWork() {
     '<div class="hwrap" id="work">',
     '  <div class="hsticky">',
     '    <div class="htrack" id="htrack">',
-    '      <div class="intro">',
-    '        <div class="sec-label">Selected Work</div>',
-        '        <h2>stories,<br>made <em>visible.</em></h2>',
+    '      <div class="intro reveal-group">',
+    '        <div class="sec-label reveal">Selected Work</div>',
+    '        <h2 class="reveal" style="--reveal-delay: 100ms">stories,<br>made <em>visible.</em></h2>',
     '      </div>',
     `      ${cards}`,
     '    </div>',

@@ -1,11 +1,12 @@
 import { services } from '../data/services.js';
 import { shopifyPartner } from '../data/shopify.js';
 
-function renderService(service) {
+function renderService(service, index) {
   const shopifyBlock = service.shopifyPartner ? `\n    ${renderShopifyPartner()}` : '';
+  const delay = 80 + index * 60;
 
   return [
-    `<div class="svc${service.open ? ' open' : ''}">`,
+    `<div class="svc${service.open ? ' open' : ''} reveal" style="--reveal-delay: ${delay}ms">`,
     `  <div class="num">${service.num}</div>`,
     `  <h3>${service.title}</h3>`,
     '  <span class="plus">+</span>',
@@ -48,8 +49,8 @@ export function renderServices() {
   const items = services.map(renderService).join('\n  ');
 
   return [
-    '<section id="services">',
-    '  <div class="sec-label services-header">Services</div>',
+    '<section id="services" class="reveal-group">',
+    '  <div class="sec-label services-header reveal">Services</div>',
     `  ${items}`,
     '</section>',
   ].join('\n');
