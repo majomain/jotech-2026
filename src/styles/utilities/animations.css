@@ -35,6 +35,10 @@
     transform: none !important;
   }
 
+  .case-header h1 .ln em {
+    transform: none !important;
+  }
+
   .hero-carousel__track {
     animation: none !important;
     transform: none !important;

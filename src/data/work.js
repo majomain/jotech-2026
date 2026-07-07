@@ -10,7 +10,7 @@ export const workItems = [
   {
     kicker: 'E-commerce',
     title: 'store migration',
-    description: 'Streamlined WordPress to Shopify migration—catalog, content, and checkout rebuilt without the chaos.',
+    description: 'Streamlined WordPress to Shopify migration: catalog, content, and checkout rebuilt without the chaos.',
     icon: 'https://assets.jotech.co/cursor-migration-bridge.png',
     iconSize: 'lg',
     href: '/work/jmcveigh',
@@ -19,7 +19,7 @@ export const workItems = [
   {
     kicker: 'Brand Assets',
     title: 'pro content',
-    description: 'Positioning, visuals, and voice in one system—with distinctive copy, photo, and video production.',
+    description: 'Positioning, visuals, and voice in one system, with distinctive copy, photo, and video production.',
     icon: 'https://assets.jotech.co/cursor-content-creation-edit.png',
     linkLabel: 'watch video',
     videoModal: {

@@ -2,13 +2,12 @@
 
 Modern, high-performance marketing site for JOTECH — a B2B web agency focused on design, narrative, and technical delivery.
 
-Built from the original `jotech.html` prototype, split into modular CSS and vanilla JavaScript components with [Vite](https://vitejs.dev/) for fast development and optimized production builds.
+Built with modular CSS and vanilla JavaScript components, using [Vite](https://vitejs.dev/) for fast development and optimized production builds.
 
 ## Project structure
 
 ```
 ├── index.html              # Entry HTML shell
-├── jotech.html             # Original single-file prototype (reference)
 ├── src/
 │   ├── main.js             # App bootstrap
 │   ├── app.js              # Composes all sections

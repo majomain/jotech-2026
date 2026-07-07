@@ -1,11 +1,17 @@
 const COUNTER_OPTIONS = { threshold: 0.5 };
-const STEPS = 38;
+const DURATION_MS = 2200;
+
+function easeOutCubic(t) {
+  return 1 - (1 - t) ** 3;
+}
 
 /**
  * Animates metric numbers when they scroll into view.
  */
 export function initCounterAnimation(root = document) {
-  if (!('IntersectionObserver' in window)) {
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
     root.querySelectorAll('[data-count]').forEach((el) => {
       const target = parseInt(el.dataset.count, 10);
       const suffix = el.dataset.suffix ?? '';
@@ -21,16 +27,16 @@ export function initCounterAnimation(root = document) {
       const el = entry.target;
       const target = parseInt(el.dataset.count, 10);
       const suffix = el.dataset.suffix ?? '';
-      let current = 0;
+      const startTime = performance.now();
 
-      const step = () => {
-        current += Math.ceil(target / STEPS);
-        if (current >= target) current = target;
-        el.textContent = `${current}${suffix}`;
-        if (current < target) requestAnimationFrame(step);
+      const step = (now) => {
+        const progress = Math.min(1, (now - startTime) / DURATION_MS);
+        const value = Math.round(target * easeOutCubic(progress));
+        el.textContent = `${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(step);
       };
 
-      step();
+      requestAnimationFrame(step);
       counterObserver.unobserve(el);
     });
   }, COUNTER_OPTIONS);

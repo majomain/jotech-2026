@@ -33,7 +33,7 @@ export function renderLogo(className, { height = 72, link = true, wordmark = fal
   }
 
   return [
-    `<a href="/" class="${className}" aria-label="${alt} — home">`,
+    `<a href="/" class="${className}" aria-label="${alt}, home">`,
     inner,
     '</a>',
   ].join('\n');

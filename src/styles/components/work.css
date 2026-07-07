@@ -152,6 +152,16 @@
   color: var(--wcard-fg);
 }
 
+/* Light mode: titles overlap dark 3D icons — difference inverts over dark areas */
+[data-theme='light'] .wcard {
+  isolation: isolate;
+}
+
+[data-theme='light'] .wcard h3 {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
 .wcard p {
   margin: 8px 0 0;
   color: var(--wcard-dim);

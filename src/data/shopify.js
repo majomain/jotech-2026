@@ -5,5 +5,5 @@ export const shopifyPartner = {
   tag: 'Platform Developer',
   heading: 'official Shopify partner',
   description:
-    'Certified to build client transfer stores — we handle platform migrations, theme customization, and full storefront development from strategy through launch.',
+    'Certified to build client transfer stores. We handle platform migrations, theme customization, and full storefront development from strategy through launch.',
 };

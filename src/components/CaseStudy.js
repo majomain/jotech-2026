@@ -69,6 +69,13 @@ function renderHeroVisual(visual) {
   ].join('\n');
 }
 
+function renderCaseTitle(study) {
+  const lines = study.titleLines ?? [{ text: study.title }];
+  const markup = lines.map((line) => `<span class="ln"><em>${line.text}</em></span>`).join('\n      ');
+
+  return [`    <h1 class="case-title">`, `      ${markup}`, `    </h1>`].join('\n');
+}
+
 function renderHeader(study) {
   const summary = study.summary
     .map((paragraph) => `      <p>${escapeHtml(paragraph)}</p>`)
@@ -76,7 +83,7 @@ function renderHeader(study) {
 
   const heroMain = [
     `    <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
-    `    <h1 class="reveal">${escapeHtml(study.title)}</h1>`,
+    renderCaseTitle(study),
   ].join('\n');
 
   const heroBlock = study.heroVisual

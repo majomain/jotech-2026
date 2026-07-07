@@ -4,6 +4,37 @@ const TYPEWRITER_PERIOD_PAUSE_MS = 420;
 const TYPEWRITER_START_MS = 1100;
 const VOID_ELEMENTS = new Set(['br', 'hr', 'img', 'input', 'meta', 'link']);
 
+/**
+ * Clip-reveal stagger for headline lines (hero, case study, etc.).
+ */
+export function animateClipRevealLines(
+  root = document,
+  selector,
+  { delayBase = 300, stagger = 100, duration = 1000 } = {},
+) {
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const lines = root.querySelectorAll(selector);
+
+  lines.forEach((el, i) => {
+    if (reduceMotion) {
+      el.style.transform = 'none';
+      return;
+    }
+
+    if (!el.animate) return;
+
+    el.animate(
+      [{ transform: 'translateY(110%)' }, { transform: 'translateY(0)' }],
+      {
+        duration,
+        delay: delayBase + i * stagger,
+        easing: EASING,
+        fill: 'both',
+      },
+    );
+  });
+}
+
 function tokenizeSubtextHtml(html) {
   const shell = document.createElement('div');
   shell.innerHTML = html.trim();
@@ -118,31 +149,17 @@ function initHeroSubtextTypewriter(root) {
   window.setTimeout(step, TYPEWRITER_START_MS);
 }
 
-/**
- * Staggered entrance animation for hero headline lines.
- */
 export function initHeroAnimation(root = document) {
-  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const lines = root.querySelectorAll('.hero h1 .ln em');
-
-  lines.forEach((el, i) => {
-    if (reduceMotion) {
-      el.style.transform = 'none';
-      return;
-    }
-
-    if (!el.animate) return;
-
-    el.animate(
-      [{ transform: 'translateY(110%)' }, { transform: 'translateY(0)' }],
-      {
-        duration: 1000,
-        delay: 300 + i * 100,
-        easing: EASING,
-        fill: 'both',
-      }
-    );
-  });
-
+  animateClipRevealLines(root, '.hero h1 .ln em');
   initHeroSubtextTypewriter(root);
+}
+
+/**
+ * Load-time line reveal for case study page titles.
+ */
+export function initCaseHeaderAnimation(root = document) {
+  animateClipRevealLines(root, '.case-header h1 .ln em', {
+    delayBase: 220,
+    stagger: 90,
+  });
 }
