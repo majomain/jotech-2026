@@ -49,12 +49,12 @@ export const caseStudies = [
         alt: 'Arkim AI site footer',
       },
     ],
-    next: { label: 'Next Project', href: '/work/jmcveigh' },
+    next: { label: 'next project', href: '/work/jmcveigh' },
   },
   {
     slug: 'jmcveigh',
     path: '/work/jmcveigh',
-    label: 'Case Study — J. McVeigh Jewelry · 01MAY2026',
+    label: 'Case Study — J. McVeigh Jewelry',
     title: 'store migration for a fine jewelry boutique',
     documentTitle: 'J. McVeigh Jewelry — Case Study | JOTECH',
     summary: [
@@ -66,7 +66,7 @@ export const caseStudies = [
     service: 'Shopify Migration & Store Build',
     year: '2026',
     cover: {
-      src: `${ASSET_BASE}/jmcveigh/01-hero.jpg`,
+      src: 'https://assets.jotech.co/port-JMcV-updated.png',
       alt: 'J. McVeigh Jewelry homepage hero — custom, one-of-a-kind and finely crafted jewelry',
     },
     gallery: [
@@ -99,7 +99,7 @@ export const caseStudies = [
         alt: 'J. McVeigh Jewelry site footer',
       },
     ],
-    next: { label: 'Next Project', href: '/work' },
+    next: { label: 'next project', href: '/work' },
   },
 ];
 

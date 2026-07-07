@@ -5,6 +5,7 @@ export function renderCTA() {
     '<section class="cta" id="contact">',
     '  <h2>let\'s build your <em>digital narrative</em></h2>',
     `  <a class="cta-btn" href="${site.contactUrl}">get in contact</a>`,
+    '  <p class="cta-note">have a great day 🙂</p>',
     '</section>',
   ].join('\n');
 }

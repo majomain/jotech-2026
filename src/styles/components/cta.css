@@ -42,3 +42,11 @@
   transform: scale(1.05);
   box-shadow: 0 0 40px var(--cta-shadow);
 }
+
+.cta-note {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--mono-track);
+  color: var(--dim);
+}
