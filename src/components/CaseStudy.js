@@ -31,8 +31,10 @@ function renderGalleryVideo(item) {
 }
 
 function renderGalleryFigure(image) {
+  const variantClass = image.variant ? ` case-figure--${image.variant}` : '';
+
   return [
-    '    <figure class="case-figure reveal">',
+    `    <figure class="case-figure${variantClass} reveal">`,
     `      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async">`,
     '    </figure>',
   ].join('\n');
@@ -62,9 +64,20 @@ function renderCaseNav(study) {
 }
 
 function renderHeroVisual(visual) {
+  const alt = escapeHtml(visual.alt);
+
+  if (visual.srcDark) {
+    return [
+      '    <figure class="case-hero__visual">',
+      `      <img class="case-hero__visual-img case-hero__visual-img--light" src="${escapeHtml(visual.src)}" alt="${alt}" decoding="async">`,
+      `      <img class="case-hero__visual-img case-hero__visual-img--dark" src="${escapeHtml(visual.srcDark)}" alt="" aria-hidden="true" decoding="async">`,
+      '    </figure>',
+    ].join('\n');
+  }
+
   return [
     '    <figure class="case-hero__visual">',
-    `      <img src="${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}" decoding="async">`,
+    `      <img class="case-hero__visual-img" src="${escapeHtml(visual.src)}" alt="${alt}" decoding="async">`,
     '    </figure>',
   ].join('\n');
 }

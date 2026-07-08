@@ -21,10 +21,11 @@ export const caseStudies = [
     ],
     liveUrl: 'https://arkim.ai',
     client: 'Arkim AI',
-    service: 'Web Design & Development',
+    service: 'Web Design, Development & Digital Marketing Assets',
     year: '2026',
     heroVisual: {
-      src: 'https://assets.jotech.co/arkim-side-by-side-wht.svg',
+      src: 'https://assets.jotech.co/arkim-blk-1.svg',
+      srcDark: 'https://assets.jotech.co/arkim-wht-2.svg',
       alt: 'Arkim AI logo',
     },
     cover: {
@@ -32,6 +33,11 @@ export const caseStudies = [
       alt: 'Arkim AI homepage hero: industrial maintenance, re-leveraged',
     },
     gallery: [
+      {
+        src: 'https://assets.jotech.co/arkim-colors.gif',
+        alt: 'Arkim AI brand color palette',
+        variant: 'palette',
+      },
       {
         embedUrl: 'https://player.vimeo.com/video/1177525108?h=5344a5d7e1',
         title: 'Arkim AI client video',
