@@ -24,8 +24,8 @@ export const caseStudies = [
     service: 'Web Design & Development',
     year: '2026',
     heroVisual: {
-      src: 'https://assets.jotech.co/arkim-3d-classic-logo.jpg',
-      alt: 'Arkim AI 3D logo',
+      src: 'https://assets.jotech.co/arkim-side-by-side-wht.svg',
+      alt: 'Arkim AI logo',
     },
     cover: {
       src: `${ASSET_BASE}/arkim/01-hero.jpg`,

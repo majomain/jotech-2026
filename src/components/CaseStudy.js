@@ -63,47 +63,50 @@ function renderCaseNav(study) {
 
 function renderHeroVisual(visual) {
   return [
-    '      <figure class="case-hero-aside reveal">',
-    `        <img src="${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}" decoding="async">`,
-    '      </figure>',
+    '    <figure class="case-hero__visual">',
+    `      <img src="${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}" decoding="async">`,
+    '    </figure>',
   ].join('\n');
 }
 
 function renderCaseTitle(study) {
   const lines = study.titleLines ?? [{ text: study.title }];
-  const markup = lines.map((line) => `<span class="ln"><em>${line.text}</em></span>`).join('\n      ');
+  const markup = lines.map((line) => `<span class="ln"><em>${line.text}</em></span>`).join('\n        ');
 
-  return [`    <h1 class="case-title">`, `      ${markup}`, `    </h1>`].join('\n');
+  return ['      <h1 class="case-title reveal">', `        ${markup}`, '      </h1>'].join('\n');
 }
 
 function renderHeader(study) {
   const summary = study.summary
-    .map((paragraph) => `      <p>${escapeHtml(paragraph)}</p>`)
+    .map((paragraph) => `        <p>${escapeHtml(paragraph)}</p>`)
     .join('\n');
 
-  const heroMain = [
-    `    <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
-    renderCaseTitle(study),
-  ].join('\n');
+  const summaryBlock = ['      <div class="case-summary reveal">', summary, '      </div>'].join('\n');
+
+  const liveLink = `      <a class="cta-btn case-live reveal" ${linkAttrs({ href: study.liveUrl, external: true })}>see live website</a>`;
 
   const heroBlock = study.heroVisual
     ? [
-        '    <div class="case-hero-banner">',
-        '      <div class="case-hero-main">',
-        heroMain,
+        '    <div class="case-hero">',
+        '      <div class="case-hero__copy">',
+        `        <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
+        renderCaseTitle(study),
+        summaryBlock,
+        liveLink,
         '      </div>',
         renderHeroVisual(study.heroVisual),
         '    </div>',
       ].join('\n')
-    : heroMain;
+    : [
+        `    <div class="sec-label reveal">${escapeHtml(study.label)}</div>`,
+        renderCaseTitle(study).replace(/^      /gm, '    '),
+        summaryBlock.replace(/^      /gm, '    '),
+        liveLink.replace(/^      /, '    '),
+      ].join('\n');
 
   return [
     '  <header class="case-header">',
     heroBlock,
-    '    <div class="case-summary reveal">',
-    summary,
-    '    </div>',
-    `    <a class="cta-btn case-live reveal" ${linkAttrs({ href: study.liveUrl, external: true })}>see live website</a>`,
     '    <div class="case-rule" role="presentation"></div>',
     '    <div class="case-meta reveal">',
     renderMetaItem('Client', study.client),
