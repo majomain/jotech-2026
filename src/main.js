@@ -16,6 +16,7 @@ import { initScrollReveal } from './js/scrollReveal.js';
 import { initServicesAccordion } from './js/servicesAccordion.js';
 import { initRouting } from './js/routing.js';
 import { initVideoModal } from './js/videoModal.js';
+import { initCaseStudyMedia } from './js/caseStudyMedia.js';
 
 const app = document.getElementById('app');
 const caseStudy = getCaseStudyByPath(window.location.pathname);
@@ -28,6 +29,7 @@ if (app && caseStudy) {
   initNavMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
   initCaseHeaderAnimation(document);
+  initCaseStudyMedia(document);
   initScrollEffects(document);
   initScrollReveal(document);
 } else if (app) {

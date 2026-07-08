@@ -13,6 +13,52 @@ function renderMetaItem(label, value) {
   ].join('\n');
 }
 
+function renderGalleryNativeVideo(item) {
+  return [
+    '    <figure class="case-figure case-figure--video reveal">',
+    '      <video',
+    '        class="case-figure__video"',
+    `        src="${escapeHtml(item.src)}"`,
+    `        aria-label="${escapeHtml(item.alt ?? 'Video')}"`,
+    '        autoplay',
+    '        muted',
+    '        loop',
+    '        playsinline',
+    '        preload="metadata"',
+    '      ></video>',
+    '    </figure>',
+  ].join('\n');
+}
+
+function renderGallerySplitVideo(item) {
+  const copy = item.copy
+    .map((paragraph) => `        <p>${escapeHtml(paragraph)}</p>`)
+    .join('\n');
+
+  return [
+    '    <section class="case-split reveal">',
+    '      <div class="case-split__copy">',
+    `        <h2 class="case-split__title">${escapeHtml(item.heading)}</h2>`,
+    '        <div class="case-split__body">',
+    copy,
+    '        </div>',
+    '      </div>',
+    '      <figure class="case-split__media case-figure case-figure--video">',
+    '        <div class="case-video">',
+    '          <iframe',
+    `            title="${escapeHtml(item.title ?? 'Video')}"`,
+    `            src="${escapeHtml(item.embedUrl)}"`,
+    '            frameborder="0"',
+    '            referrerpolicy="strict-origin-when-cross-origin"',
+    '            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"',
+    '            allowfullscreen',
+    '          ></iframe>',
+    '        </div>',
+    '      </figure>',
+    '    </section>',
+  ].join('\n');
+}
+
 function renderGalleryVideo(item) {
   return [
     '    <figure class="case-figure case-figure--video reveal">',
@@ -32,16 +78,19 @@ function renderGalleryVideo(item) {
 
 function renderGalleryFigure(image) {
   const variantClass = image.variant ? ` case-figure--${image.variant}` : '';
+  const loopAttr = image.loop ? ' data-loop-gif' : '';
 
   return [
     `    <figure class="case-figure${variantClass} reveal">`,
-    `      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async">`,
+    `      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async"${loopAttr}>`,
     '    </figure>',
   ].join('\n');
 }
 
 function renderGalleryItem(item) {
+  if (item.layout === 'split' && item.embedUrl) return renderGallerySplitVideo(item);
   if (item.embedUrl) return renderGalleryVideo(item);
+  if (item.type === 'video') return renderGalleryNativeVideo(item);
   return renderGalleryFigure(item);
 }
 
@@ -84,7 +133,9 @@ function renderHeroVisual(visual) {
 
 function renderCaseTitle(study) {
   const lines = study.titleLines ?? [{ text: study.title }];
-  const markup = lines.map((line) => `<span class="ln"><em>${line.text}</em></span>`).join('\n        ');
+  const markup = lines
+    .map((line) => `<span class="ln"><em>${escapeHtml(line.text)}</em></span>`)
+    .join('\n        ');
 
   return ['      <h1 class="case-title reveal">', `        ${markup}`, '      </h1>'].join('\n');
 }

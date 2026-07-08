@@ -10,7 +10,7 @@ export const caseStudies = [
     title: 'digital assets for a B2B AI company',
     titleLines: [
       { text: 'digital assets for' },
-      { text: 'a B2B AI <em>company</em>' },
+      { text: 'a B2B AI company' },
     ],
     documentTitle: 'Arkim AI · Case Study | JOTECH',
     metaDescription:
@@ -37,10 +37,23 @@ export const caseStudies = [
         src: 'https://assets.jotech.co/arkim-colors.gif',
         alt: 'Arkim AI brand color palette',
         variant: 'palette',
+        loop: true,
       },
       {
+        type: 'video',
+        src: 'https://assets.jotech.co/arkim-reel-export.mp4',
+        alt: 'Arkim AI brand reel',
+        variant: 'reel',
+      },
+      {
+        layout: 'split',
         embedUrl: 'https://player.vimeo.com/video/1177525108?h=5344a5d7e1',
-        title: 'Arkim AI client video',
+        title: 'Arkim AI how-it-works video',
+        heading: 'a simple how-it-works film for marketing',
+        copy: [
+          'We started by mapping the product into a short, plain-language script — three beats that explain what Arkim does, who uses it, and why it matters — before any visuals were storyboarded.',
+          'Voiceover and on-screen motion were developed together so the story reads fast for plant managers and ops leaders: minimal jargon, screen-led proof, and a pace that works on the site, in sales, and in social cuts.',
+        ],
       },
       {
         src: `${ASSET_BASE}/arkim/02-why-arkim.jpg`,
@@ -54,18 +67,6 @@ export const caseStudies = [
         src: `${ASSET_BASE}/arkim/04-who-uses-arkim.jpg`,
         alt: 'Who uses Arkim: operators, technicians, and management on one platform',
       },
-      {
-        src: `${ASSET_BASE}/arkim/06-enterprise-ready.jpg`,
-        alt: 'Enterprise ready section: built for regulated industries',
-      },
-      {
-        src: `${ASSET_BASE}/arkim/07-consultation-cta.jpg`,
-        alt: 'Consultation call-to-action: tell us about your facility',
-      },
-      {
-        src: `${ASSET_BASE}/arkim/08-footer.jpg`,
-        alt: 'Arkim AI site footer',
-      },
     ],
   },
   {
@@ -75,7 +76,7 @@ export const caseStudies = [
     title: 'store migration for a fine jewelry boutique',
     titleLines: [
       { text: 'store migration for' },
-      { text: 'a fine jewelry <em>boutique</em>' },
+      { text: 'a fine jewelry boutique' },
     ],
     documentTitle: 'J. McVeigh Jewelry · Case Study | JOTECH',
     metaDescription:
