@@ -34,7 +34,7 @@ export const caseStudies = [
     },
     gallery: [
       {
-        src: 'https://assets.jotech.co/arkim-colors.gif',
+        src: 'https://assets.jotech.co/arkim-color-palette.gif',
         alt: 'Arkim AI brand color palette',
         variant: 'palette',
         loop: true,
