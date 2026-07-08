@@ -1,6 +1,6 @@
-const MIN_SIZE = 28;
-const MAX_SIZE = 68;
-const MOBILE_MAX_SIZE = 48;
+const MIN_SIZE = 32;
+const MAX_SIZE = 80;
+const MOBILE_MAX_SIZE = 52;
 const MOBILE_BREAKPOINT = 860;
 /** Share of stage content height reserved for headline block (rest → carousel) */
 const HEADLINE_SHARE = 0.42;
@@ -41,7 +41,7 @@ export function initHeroFit(root = document) {
 
   const fitHeadline = () => {
     const isMobile = isMobileViewport();
-    const minSize = isMobile ? 24 : MIN_SIZE;
+    const minSize = isMobile ? 28 : MIN_SIZE;
     const maxSize = isMobile ? MOBILE_MAX_SIZE : MAX_SIZE;
     const stageStyle = getComputedStyle(stage);
     const stagePad =
