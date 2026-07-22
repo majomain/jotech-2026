@@ -14,7 +14,7 @@ function renderCardIcon(item) {
 
 function renderCardLink(item) {
   if (item.href || item.videoModal) {
-    const label = item.linkLabel ?? (item.videoModal ? 'watch video' : 'view case study');
+    const label = item.linkLabel ?? (item.videoModal ? 'Watch video' : 'View case study');
     return `    <span class="wcard-link">${label} &rarr;</span>`;
   }
 
@@ -30,7 +30,7 @@ function renderCard(item) {
     attrs = ` href="${item.href}"`;
   } else if (item.videoModal) {
     const { embedUrl, title } = item.videoModal;
-    const label = item.linkLabel ?? 'watch video';
+    const label = item.linkLabel ?? 'Watch video';
 
     tag = 'button';
     attrs = [
@@ -78,7 +78,7 @@ export function renderWork() {
     '    <div class="htrack" id="htrack">',
     '      <div class="intro reveal-group">',
     '        <div class="sec-label reveal">Selected Work</div>',
-    '        <h2 class="reveal" style="--reveal-delay: 100ms">stories,<br>made <em>visible.</em></h2>',
+    '        <h2 class="reveal" style="--reveal-delay: 100ms">Stories,<br>made <em>visible.</em></h2>',
     '      </div>',
     `      ${cards}`,
     '    </div>',

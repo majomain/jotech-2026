@@ -7,65 +7,79 @@ export const caseStudies = [
     slug: 'arkim',
     path: '/work/arkim',
     label: 'Case Study · Arkim AI',
-    title: 'digital assets for a B2B AI company',
-    titleLines: [
-      { text: 'digital assets for' },
-      { text: 'a B2B AI company' },
-    ],
+    title: 'Arkim AI',
     documentTitle: 'Arkim AI · Case Study | JOTECH',
     metaDescription:
       "How JOTECH translated Arkim AI's technical B2B product into a clear, conversion-driven corporate website for plant managers and operations leaders.",
-    summary: [
-      'The goal of the project was to translate a deeply technical product into a clear, credible story for plant managers and operations leadership, communicating value fast, building enterprise trust across regulated industries, and guiding decision-makers toward a consultation. Emphasis was placed on structured, role-based messaging for operators, technicians, and management, and a confident visual system that reflects precision and industrial-grade reliability.',
-      'The result is a conversion-driven corporate presence that positions Arkim as the modern alternative to sensor-heavy legacy platforms, delivering value in week one, not month six.',
-    ],
+    outcome:
+      'Turning a deeply technical maintenance platform into a clear, credible story built for enterprise decision-makers.',
     liveUrl: 'https://arkim.ai',
+    websiteLabel: 'arkim.ai',
     client: 'Arkim AI',
-    service: 'Web Design, Development & Digital Marketing Assets',
-    year: '2026',
-    heroVisual: {
-      src: 'https://assets.jotech.co/arkim-blk-1.svg',
-      srcDark: 'https://assets.jotech.co/arkim-wht-2.svg',
-      alt: 'Arkim AI logo',
+    service: 'Strategy, Identity, Web Design & Development',
+    year: '2025',
+    industry: 'Industrial AI',
+    leadVisual: {
+      type: 'video',
+      src: 'https://assets.jotech.co/port-arkim-intro-reel.mp4',
+      alt: 'Arkim AI website and identity reel',
     },
-    cover: {
-      src: `${ASSET_BASE}/arkim/01-hero.jpg`,
-      alt: 'Arkim AI homepage hero: industrial maintenance, re-leveraged',
-    },
-    gallery: [
+    introVisuals: [
       {
-        src: 'https://assets.jotech.co/arkim-color-palette.gif',
-        alt: 'Arkim AI brand color palette',
-        variant: 'palette',
-        loop: true,
+        src: 'https://assets.jotech.co/arlim-laptop-mock.avif',
+        alt: 'Arkim AI website presented on a laptop',
       },
       {
-        type: 'video',
-        src: 'https://assets.jotech.co/arkim-reel-export.mp4',
-        alt: 'Arkim AI brand reel',
-        variant: 'reel',
-      },
-      {
-        layout: 'split',
-        embedUrl: 'https://player.vimeo.com/video/1177525108?h=5344a5d7e1',
-        title: 'Arkim AI how-it-works video',
-        heading: 'a simple how-it-works film for marketing',
-        copy: [
-          'We started by mapping the product into a short, plain-language script — three beats that explain what Arkim does, who uses it, and why it matters — before any visuals were storyboarded.',
-          'Voiceover and on-screen motion were developed together so the story reads fast for plant managers and ops leaders: minimal jargon, screen-led proof, and a pace that works on the site, in sales, and in social cuts.',
-        ],
+        src: 'https://assets.jotech.co/arkim-mobile-mock-004.avif',
+        alt: 'Arkim AI mobile website presented across phone mockups',
       },
       {
         src: `${ASSET_BASE}/arkim/02-why-arkim.jpg`,
-        alt: 'Why Arkim section: the maintenance workforce is shrinking',
+        alt: 'Arkim page explaining the shrinking maintenance workforce',
+      },
+    ],
+    story: [
+      {
+        intro: false,
+        layout: 'full',
+        media: [
+          {
+            src: `${ASSET_BASE}/arkim/03-how-it-works.jpg`,
+            alt: 'Arkim product workflow showing diagnosis before dispatch',
+            label: 'Clarity',
+            caption:
+              'A three-step product story turns the underlying system into an easy path from signal to action.',
+          },
+          {
+            src: `${ASSET_BASE}/arkim/04-who-uses-arkim.jpg`,
+            alt: 'Arkim role-based messaging for operators, technicians, and management',
+            label: 'Relevance',
+            caption:
+              'Role-specific outcomes help each stakeholder recognize their place in the platform.',
+          },
+        ],
       },
       {
-        src: `${ASSET_BASE}/arkim/03-how-it-works.jpg`,
-        alt: 'How it works section: diagnose before you dispatch',
-      },
-      {
-        src: `${ASSET_BASE}/arkim/04-who-uses-arkim.jpg`,
-        alt: 'Who uses Arkim: operators, technicians, and management on one platform',
+        intro: false,
+        layout: 'identity-pair',
+        media: [
+          {
+            src: 'https://assets.jotech.co/arkim-color-palette.gif',
+            alt: 'Arkim AI color system moving through its core brand palette',
+            label: 'Color system',
+            caption:
+              'High-contrast accents identify key moments while the neutral canvas keeps information calm and legible.',
+            loop: true,
+          },
+          {
+            src: 'https://assets.jotech.co/port-arkim-tee.avif',
+            alt: 'Arkim AI identity applied to a branded T-shirt',
+            label: 'Brand application',
+            caption:
+              'The identity extends beyond the interface into a practical team touchpoint without losing its industrial character.',
+            variant: 'square',
+          },
+        ],
       },
     ],
   },
@@ -73,9 +87,9 @@ export const caseStudies = [
     slug: 'jmcveigh',
     path: '/work/jmcveigh',
     label: 'Case Study · J. McVeigh Jewelry',
-    title: 'store migration for a fine jewelry boutique',
+    title: 'Store migration for a fine jewelry boutique',
     titleLines: [
-      { text: 'store migration for' },
+      { text: 'Store migration for' },
       { text: 'a fine jewelry boutique' },
     ],
     documentTitle: 'J. McVeigh Jewelry · Case Study | JOTECH',
@@ -131,7 +145,7 @@ function withNavigation(study, index) {
 
   return {
     ...study,
-    back: { label: 'back to work', href: sections.work },
+    back: { label: 'Back to work', href: sections.work },
     next: { label: nextStudy.client, href: nextStudy.path },
   };
 }

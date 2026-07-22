@@ -6,7 +6,7 @@ export const team = [
     imageAlt: 'Jacob Ogburn, founder of JOTECH',
     name: 'Jacob',
     role: 'Founder and Director',
-    headline: 'every brand has a story. i help teams tell it <em>well.</em>',
+    headline: 'Every brand has a story. I help teams tell it <em>well.</em>',
     bio:
       'JOTECH grew out of a belief that a compelling narrative builds trust, and trust is what turns a vision into reality. I partner with B2C and B2B brands to shape that story through design, development, and the kind of visual storytelling that turns attention into trust.',
     linkedInUrl: site.linkedInUrl,
@@ -18,7 +18,7 @@ export const team = [
     name: 'Brayden',
     role: 'Graphic + Digital Design',
     headline:
-      'design isn\u2019t decoration. it\u2019s your story, <em>visualized.</em>',
+      'Design isn\u2019t decoration. It\u2019s your story, <em>visualized.</em>',
     bio:
       'With over a decade in graphic and digital design, Brayden has shaped brand identities, artwork, and digital-first visuals for everything from record labels to emerging tech ventures. As a creative director and lifelong visual artist, he brings craft and bold ideas to every JOTECH project, turning brand narratives into designs that people remember.',
     linkedInUrl: 'https://www.linkedin.com/in/brayden-doig/',
