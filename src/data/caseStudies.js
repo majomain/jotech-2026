@@ -30,12 +30,12 @@ export const caseStudies = [
         alt: 'Arkim AI website presented on a laptop',
       },
       {
-        src: 'https://assets.jotech.co/arkim-mobile-mock-004.avif',
-        alt: 'Arkim AI mobile website presented across phone mockups',
-      },
-      {
         src: `${ASSET_BASE}/arkim/02-why-arkim.jpg`,
         alt: 'Arkim page explaining the shrinking maintenance workforce',
+      },
+      {
+        src: 'https://assets.jotech.co/arkim-mobile-mock-004.avif',
+        alt: 'Arkim AI mobile website presented across phone mockups',
       },
     ],
     story: [
@@ -46,16 +46,10 @@ export const caseStudies = [
           {
             src: `${ASSET_BASE}/arkim/03-how-it-works.jpg`,
             alt: 'Arkim product workflow showing diagnosis before dispatch',
-            label: 'Clarity',
-            caption:
-              'A three-step product story turns the underlying system into an easy path from signal to action.',
           },
           {
             src: `${ASSET_BASE}/arkim/04-who-uses-arkim.jpg`,
             alt: 'Arkim role-based messaging for operators, technicians, and management',
-            label: 'Relevance',
-            caption:
-              'Role-specific outcomes help each stakeholder recognize their place in the platform.',
           },
         ],
       },
@@ -68,7 +62,7 @@ export const caseStudies = [
             alt: 'Arkim AI color system moving through its core brand palette',
             label: 'Color system',
             caption:
-              'High-contrast accents identify key moments while the neutral canvas keeps information calm and legible.',
+              'Bold accents where it counts. A calm, neutral canvas everywhere else.',
             loop: true,
           },
           {
@@ -76,7 +70,7 @@ export const caseStudies = [
             alt: 'Arkim AI identity applied to a branded T-shirt',
             label: 'Brand application',
             caption:
-              'The identity extends beyond the interface into a practical team touchpoint without losing its industrial character.',
+              'The brand works off-screen too. Industrial character, intact on cotton.',
             variant: 'square',
           },
         ],
