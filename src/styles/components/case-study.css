@@ -560,6 +560,7 @@
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 600;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .case-editorial-meta__link {
@@ -611,7 +612,8 @@
 .case-editorial-section {
   width: 100%;
   margin: 0;
-  padding-top: clamp(140px, 22vh, 260px);
+  /* Reset global `section` padding so media can go edge-to-edge of the frame */
+  padding: clamp(140px, 22vh, 260px) 0 0;
 }
 
 .case-editorial-section--media-only {
@@ -734,6 +736,13 @@
   transition: transform 1.4s var(--ease-editorial);
 }
 
+/* Crop baked-in Shopify page gutters so screenshots edge-to-edge the frame */
+.case-editorial-figure--bleed .case-editorial-figure__frame img {
+  width: 106%;
+  max-width: none;
+  margin-inline: -3%;
+}
+
 .case-editorial-figure__video {
   display: block;
   width: 100%;
@@ -845,6 +854,6 @@
   }
 
   .case-editorial-section {
-    padding-top: 120px;
+    padding: 120px 0 0;
   }
 }

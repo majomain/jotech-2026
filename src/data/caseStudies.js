@@ -81,54 +81,65 @@ export const caseStudies = [
     slug: 'jmcveigh',
     path: '/work/jmcveigh',
     label: 'Case Study · J. McVeigh Jewelry',
-    title: 'Store migration for a fine jewelry boutique',
-    titleLines: [
-      { text: 'Store migration for' },
-      { text: 'a fine jewelry boutique' },
-    ],
+    title: 'J. McVeigh Jewelry',
     documentTitle: 'J. McVeigh Jewelry · Case Study | JOTECH',
     metaDescription:
       'How JOTECH migrated J. McVeigh Jewelry to Shopify while preserving brand tone and rebuilding catalog, checkout, and merchandising for a fine jewelry boutique.',
-    summary: [
-      'The goal of the project was to move the full product catalog onto Shopify without losing momentum, preserving collections, product detail, and brand tone while rebuilding checkout, navigation, and content structure from the ground up. Emphasis was placed on clear merchandising for new arrivals and birthstone collections, event promotion for in-store appearances, and a polished product page template suited to one-of-a-kind inventory with rich imagery and stone attributes.',
-      'The result is a streamlined Shopify storefront that supports ongoing merchandising, appointment scheduling, and discovery, giving J. McVeigh Jewelry a modern e-commerce foundation built to scale with new designers, seasonal collections, and in-store events.',
-    ],
+    outcome:
+      'Moving a fine jewelry boutique onto Shopify with its catalog, collections, and quiet gallery character intact.',
     liveUrl: 'https://jmcveigh-jewelry.myshopify.com/',
+    websiteLabel: 'jmcveigh-jewelry.myshopify.com',
     client: 'J. McVeigh Jewelry',
     service: 'Shopify Migration & Store Build',
     year: '2026',
-    cover: {
-      src: 'https://assets.jotech.co/port-JMcV-updated.png',
-      alt: 'J. McVeigh Jewelry homepage hero: custom, one-of-a-kind and finely crafted jewelry',
+    industry: 'Fine Jewelry',
+    ogImage: 'https://assets.jotech.co/port-JMcV-updated.png',
+    leadVisual: {
+      type: 'video',
+      src: 'https://assets.jotech.co/jmcveigh-photo-reel.mp4',
+      alt: 'J. McVeigh Jewelry product photography reel',
     },
-    gallery: [
+    introVisuals: [
       {
-        src: `${ASSET_BASE}/jmcveigh/02-events.jpg`,
-        alt: 'Trunk show and personal appearance event promotions',
+        src: 'https://assets.jotech.co/jmcveigh-laptop-mockup-16-9.avif',
+        alt: 'J. McVeigh Jewelry website presented on a laptop',
+      },
+    ],
+    story: [
+      {
+        intro: false,
+        layout: 'full',
+        media: [
+          {
+            src: 'https://assets.jotech.co/jmcveigh-collections-screenshot.png',
+            alt: 'All jewelry collection page with product grid',
+            variant: 'bleed',
+          },
+          {
+            src: `${ASSET_BASE}/jmcveigh/07-product.jpg`,
+            alt: 'Product detail page: Halo Ring with Unheated Blue Sapphire',
+            variant: 'bleed',
+          },
+        ],
       },
       {
-        src: `${ASSET_BASE}/jmcveigh/03-new-arrivals.jpg`,
-        alt: 'New arrivals product grid on the homepage',
-      },
-      {
-        src: `${ASSET_BASE}/jmcveigh/04-location.jpg`,
-        alt: 'Stonington, Maine location section',
-      },
-      {
-        src: `${ASSET_BASE}/jmcveigh/05-birthstones.jpg`,
-        alt: 'Birthstones collection browsing by month',
-      },
-      {
-        src: `${ASSET_BASE}/jmcveigh/06-collection.jpg`,
-        alt: 'All jewelry collection page with product grid',
-      },
-      {
-        src: `${ASSET_BASE}/jmcveigh/07-product.jpg`,
-        alt: 'Product detail page: Halo Ring with Unheated Blue Sapphire',
-      },
-      {
-        src: `${ASSET_BASE}/jmcveigh/08-footer.jpg`,
-        alt: 'J. McVeigh Jewelry site footer',
+        intro: false,
+        layout: 'full',
+        media: [
+          {
+            src: `${ASSET_BASE}/jmcveigh/03-new-arrivals.jpg`,
+            alt: 'New arrivals product grid on the homepage',
+          },
+          {
+            src: `${ASSET_BASE}/jmcveigh/05-birthstones.jpg`,
+            alt: 'Birthstones collection browsing by month',
+          },
+          {
+            src: 'https://assets.jotech.co/jmcveigh-about-screenshot.png',
+            alt: 'About page featuring the gallery, studio, and brand story',
+            variant: 'bleed',
+          },
+        ],
       },
     ],
   },
