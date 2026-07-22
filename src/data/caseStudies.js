@@ -95,14 +95,14 @@ export const caseStudies = [
     industry: 'Fine Jewelry',
     ogImage: 'https://assets.jotech.co/port-JMcV-updated.png',
     leadVisual: {
-      type: 'video',
-      src: 'https://assets.jotech.co/jmcveigh-photo-reel.mp4',
-      alt: 'J. McVeigh Jewelry product photography reel',
+      src: 'https://assets.jotech.co/jmcveigh-laptop-mockup-16-9.avif',
+      alt: 'J. McVeigh Jewelry website presented on a laptop',
     },
     introVisuals: [
       {
-        src: 'https://assets.jotech.co/jmcveigh-laptop-mockup-16-9.avif',
-        alt: 'J. McVeigh Jewelry website presented on a laptop',
+        type: 'video',
+        src: 'https://assets.jotech.co/jmcveigh-photo-reel.mp4',
+        alt: 'J. McVeigh Jewelry product photography reel',
       },
     ],
     story: [
