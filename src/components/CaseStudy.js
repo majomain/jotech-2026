@@ -231,7 +231,12 @@ function renderEditorialLead(media) {
   const ratioClass = media.aspectRatio
     ? ` case-editorial-lead--${escapeHtml(String(media.aspectRatio).replace(/\s*\/\s*/g, '-'))}`
     : '';
-  const fitClass = media.fit === 'contain' ? ' case-editorial-lead--fit' : '';
+  const fitClass =
+    media.fit === 'contain'
+      ? ' case-editorial-lead--fit'
+      : media.fit === 'natural'
+        ? ' case-editorial-lead--natural'
+        : '';
   const visual =
     media.type === 'video'
       ? [

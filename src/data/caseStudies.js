@@ -102,6 +102,7 @@ export const caseStudies = [
       {
         src: 'https://assets.jotech.co/jmcveigh-jewelry-product-feature.png',
         alt: 'Product detail page: Carved Glacier Cuff Bracelet with Ruby by Barbara Heinrich',
+        fit: 'natural',
       },
       {
         type: 'video',
