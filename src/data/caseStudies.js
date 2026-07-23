@@ -32,6 +32,7 @@ export const caseStudies = [
       {
         src: `${ASSET_BASE}/arkim/02-why-arkim.jpg`,
         alt: 'Arkim page explaining the shrinking maintenance workforce',
+        fit: 'natural',
       },
       {
         src: 'https://assets.jotech.co/arkim-mobile-mock-004.avif',
