@@ -228,6 +228,10 @@ function renderEditorialSection(section) {
 }
 
 function renderEditorialLead(media) {
+  const ratioClass = media.aspectRatio
+    ? ` case-editorial-lead--${escapeHtml(String(media.aspectRatio).replace(/\s*\/\s*/g, '-'))}`
+    : '';
+  const fitClass = media.fit === 'contain' ? ' case-editorial-lead--fit' : '';
   const visual =
     media.type === 'video'
       ? [
@@ -245,7 +249,7 @@ function renderEditorialLead(media) {
       : `    <img src="${escapeHtml(media.src)}" alt="${escapeHtml(media.alt)}" decoding="async">`;
 
   return [
-    '  <figure class="case-editorial-lead reveal">',
+    `  <figure class="case-editorial-lead${ratioClass}${fitClass} reveal">`,
     visual,
     '  </figure>',
   ].join('\n');

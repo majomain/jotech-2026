@@ -100,9 +100,15 @@ export const caseStudies = [
     },
     introVisuals: [
       {
+        src: 'https://assets.jotech.co/jmcveigh-jewelry-product-page.avif',
+        alt: 'Product detail page: Pink Sapphire Ring by Peter Schmid',
+      },
+      {
         type: 'video',
-        src: 'https://assets.jotech.co/jmcveigh-photo-reel.mp4',
+        src: 'https://assets.jotech.co/jmcveigh-reel-21-9-FX.mp4',
         alt: 'J. McVeigh Jewelry product photography reel',
+        aspectRatio: '21/9',
+        fit: 'contain',
       },
     ],
     story: [
@@ -113,30 +119,6 @@ export const caseStudies = [
           {
             src: 'https://assets.jotech.co/jmcveigh-collections-screenshot.png',
             alt: 'All jewelry collection page with product grid',
-            variant: 'bleed',
-          },
-          {
-            src: `${ASSET_BASE}/jmcveigh/07-product.jpg`,
-            alt: 'Product detail page: Halo Ring with Unheated Blue Sapphire',
-            variant: 'bleed',
-          },
-        ],
-      },
-      {
-        intro: false,
-        layout: 'full',
-        media: [
-          {
-            src: `${ASSET_BASE}/jmcveigh/03-new-arrivals.jpg`,
-            alt: 'New arrivals product grid on the homepage',
-          },
-          {
-            src: `${ASSET_BASE}/jmcveigh/05-birthstones.jpg`,
-            alt: 'Birthstones collection browsing by month',
-          },
-          {
-            src: 'https://assets.jotech.co/jmcveigh-about-screenshot.png',
-            alt: 'About page featuring the gallery, studio, and brand story',
             variant: 'bleed',
           },
         ],

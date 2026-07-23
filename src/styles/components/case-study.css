@@ -591,6 +591,10 @@
   background: var(--bg2);
 }
 
+.case-editorial-lead--21-9 {
+  aspect-ratio: 21 / 9;
+}
+
 .case-editorial-lead img,
 .case-editorial-lead__video {
   display: block;
@@ -598,6 +602,12 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
+}
+
+.case-editorial-lead--fit img,
+.case-editorial-lead--fit .case-editorial-lead__video {
+  object-fit: contain;
+  object-position: center;
 }
 
 .case-editorial-lead img {
@@ -801,6 +811,10 @@
 
   .case-editorial-lead {
     aspect-ratio: 4 / 3;
+  }
+
+  .case-editorial-lead--21-9 {
+    aspect-ratio: 21 / 9;
   }
 
   .case-editorial-section__intro,
