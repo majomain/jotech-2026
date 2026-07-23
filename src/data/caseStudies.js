@@ -118,20 +118,19 @@ export const caseStudies = [
         layout: 'identity-pair',
         media: [
           {
-            type: 'video',
-            src: 'https://assets.jotech.co/jmcveigh-color-palette.mp4',
-            alt: 'J. McVeigh Jewelry color system moving through its core brand palette',
-            label: 'Color system',
+            src: 'https://assets.jotech.co/shopify-product-card.png',
+            alt: 'J. McVeigh Jewelry Shopify product card with image, title, and price',
+            label: 'Product cards',
             caption:
-              'Quiet neutrals and warm metal tones. Room for the jewelry to lead.',
+              'Image-led cards that keep browsing quiet and the jewelry forward.',
           },
           {
             type: 'video',
             src: 'https://assets.jotech.co/rg-video-crownwork-sqr.mp4',
             alt: 'Crownwork jewelry craftsmanship detail',
-            label: 'Brand application',
+            label: 'Motion aesthetic',
             caption:
-              'The brand lives in the work itself. Material, finish, and light.',
+              'Slow, close, and tactile. Motion that feels as considered as the pieces.',
             variant: 'square',
           },
         ],
