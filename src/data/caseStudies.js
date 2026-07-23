@@ -100,26 +100,38 @@ export const caseStudies = [
     },
     introVisuals: [
       {
-        src: 'https://assets.jotech.co/jmcveigh-jewelry-product-page.avif',
-        alt: 'Product detail page: Pink Sapphire Ring by Peter Schmid',
-      },
-      {
         type: 'video',
         src: 'https://assets.jotech.co/jmcveigh-reel-21-9-FX.mp4',
         alt: 'J. McVeigh Jewelry product photography reel',
         aspectRatio: '21/9',
         fit: 'contain',
       },
+      {
+        src: 'https://assets.jotech.co/jmcveigh-jewelry-product-page.avif',
+        alt: 'Product detail page: Pink Sapphire Ring by Peter Schmid',
+      },
     ],
     story: [
       {
         intro: false,
-        layout: 'full',
+        layout: 'identity-pair',
         media: [
           {
-            src: 'https://assets.jotech.co/jmcveigh-collections-screenshot.png',
-            alt: 'All jewelry collection page with product grid',
-            variant: 'bleed',
+            type: 'video',
+            src: 'https://assets.jotech.co/jmcveigh-color-palette.mp4',
+            alt: 'J. McVeigh Jewelry color system moving through its core brand palette',
+            label: 'Color system',
+            caption:
+              'Quiet neutrals and warm metal tones. Room for the jewelry to lead.',
+          },
+          {
+            type: 'video',
+            src: 'https://assets.jotech.co/rg-video-crownwork-sqr.mp4',
+            alt: 'Crownwork jewelry craftsmanship detail',
+            label: 'Brand application',
+            caption:
+              'The brand lives in the work itself. Material, finish, and light.',
+            variant: 'square',
           },
         ],
       },
