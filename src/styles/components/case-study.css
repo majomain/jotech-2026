@@ -761,6 +761,12 @@
   object-fit: cover;
 }
 
+.case-editorial-figure--square .case-editorial-figure__video {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+}
+
 .case-editorial-figure.in .case-editorial-figure__frame img {
   transform: scale(1);
 }

@@ -100,15 +100,15 @@ export const caseStudies = [
     },
     introVisuals: [
       {
+        src: 'https://assets.jotech.co/jmcveigh-jewelry-product-feature.png',
+        alt: 'Product detail page: Carved Glacier Cuff Bracelet with Ruby by Barbara Heinrich',
+      },
+      {
         type: 'video',
         src: 'https://assets.jotech.co/jmcveigh-reel-21-9-FX.mp4',
         alt: 'J. McVeigh Jewelry product photography reel',
         aspectRatio: '21/9',
         fit: 'contain',
-      },
-      {
-        src: 'https://assets.jotech.co/jmcveigh-jewelry-product-page.avif',
-        alt: 'Product detail page: Pink Sapphire Ring by Peter Schmid',
       },
     ],
     story: [
