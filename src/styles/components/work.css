@@ -59,7 +59,27 @@
   position: absolute;
   inset: 0;
   background: var(--work-card-bg);
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Soft teal/gold bloom — intensifies the existing fill without scaling */
+.wcard .bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s ease;
+  background:
+    radial-gradient(
+      ellipse 150% 130% at 14% 16%,
+      color-mix(in srgb, var(--wcard-teal) 72%, transparent) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 140% 120% at 86% 84%,
+      color-mix(in srgb, var(--wcard-gold) 58%, transparent) 0%,
+      transparent 58%
+    );
 }
 
 .wcard .bg::after {
@@ -73,8 +93,8 @@
   mix-blend-mode: soft-light;
 }
 
-.wcard:hover .bg {
-  transform: scale(1.05);
+.wcard:hover .bg::before {
+  opacity: 1;
 }
 
 .wcard .ov {
@@ -115,10 +135,6 @@
 .wcard.in .wcard-icon__img {
   opacity: 1;
   transform: none;
-}
-
-.wcard.in:hover .wcard-icon__img {
-  transform: scale(1.03);
 }
 
 .wcard .body {
@@ -173,13 +189,22 @@ a.wcard,
 button.wcard {
   display: block;
   color: inherit;
+  cursor: pointer;
+}
+
+/*
+ * Whole-card hit target: children must not compete for cursor (images/text
+ * inside <a>/<button> can flicker between pointer and default/drag).
+ */
+a.wcard > *,
+button.wcard > * {
+  pointer-events: none;
 }
 
 button.wcard {
   appearance: none;
   background: none;
   padding: 0;
-  cursor: pointer;
   text-align: inherit;
   font: inherit;
 }
