@@ -21,6 +21,11 @@ export function initHeroCarousel(root = document) {
         entries.forEach((entry) => {
           const video = entry.target;
           if (entry.isIntersecting) {
+            // Duplicate-loop tiles defer src via data-src until needed.
+            if (video.dataset.src && !video.getAttribute('src')) {
+              video.src = video.dataset.src;
+              video.load();
+            }
             video.play().catch(() => {});
           } else {
             video.pause();
@@ -207,6 +212,18 @@ export function initHeroCarousel(root = document) {
 
     endDrag(isDragging);
   };
+
+  // Suppress link navigation after a scrub so drag does not fire click.
+  carousel.addEventListener(
+    'click',
+    (e) => {
+      if (dragDistance > DRAG_THRESHOLD) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true,
+  );
 
   carousel.addEventListener('pointerdown', onPointerDown);
   carousel.addEventListener('pointermove', onPointerMove);

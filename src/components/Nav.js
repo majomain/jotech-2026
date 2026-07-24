@@ -8,6 +8,7 @@ export function renderNav() {
     .join('');
 
   return [
+    '<a class="skip-link" href="#main">Skip to content</a>',
     '<nav class="site-nav">',
     `  ${renderLogo('logo', { wordmark: true })}`,
     '  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">',

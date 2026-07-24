@@ -369,7 +369,7 @@ export function renderCaseStudyPage(study) {
     '<main id="main" class="case-page">',
     renderCaseStudy(study),
     editorial ? '' : renderCTA(),
-    editorial ? '' : renderFooter(),
+    renderFooter(),
     '</main>',
     '</div>',
   ]

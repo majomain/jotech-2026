@@ -6,7 +6,7 @@ import { setCaseStudyMeta } from './utils/meta.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
 import { initNavScroll } from './js/navScroll.js';
-import { initHeroAnimation, initCaseHeaderAnimation } from './js/heroAnimation.js';
+import { initHeroAnimation } from './js/heroAnimation.js';
 import { initHeroFit } from './js/heroFit.js';
 import { initHeroCarousel } from './js/heroCarousel.js';
 import { initCounterAnimation } from './js/counterAnimation.js';
@@ -28,7 +28,6 @@ if (app && caseStudy) {
   initTheme(document);
   initNavMenu(document);
   initNavScroll(document.querySelector('.site-nav'));
-  initCaseHeaderAnimation(document);
   initCaseStudyMedia(document);
   initScrollEffects(document);
   initScrollReveal(document);

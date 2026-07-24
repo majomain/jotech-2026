@@ -1,3 +1,26 @@
+.skip-link {
+  position: absolute;
+  left: var(--pad-x);
+  top: 0;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--mono-track);
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: translateY(-120%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(max(12px, env(safe-area-inset-top)));
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
 .site-nav {
   position: fixed;
   top: 0;

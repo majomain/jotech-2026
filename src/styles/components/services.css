@@ -1,21 +1,38 @@
 .svc {
   border-top: 1px solid var(--line);
   padding: 42px 0;
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  gap: 30px;
-  align-items: center;
   position: relative;
-  cursor: pointer;
-  transition: padding-left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .svc:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.svc:hover {
+.svc__toggle {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: padding-left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.svc__toggle:hover,
+.svc__toggle:focus-visible {
   padding-left: 20px;
+}
+
+.svc__toggle:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 4px;
 }
 
 .svc .num {
@@ -24,7 +41,7 @@
   color: var(--dim);
 }
 
-.svc h3 {
+.svc__title {
   font-family: var(--font-display);
   font-size: clamp(28px, 4.5vw, 60px);
   font-weight: 600;
@@ -33,11 +50,12 @@
   transition: color 0.3s;
 }
 
-.svc:hover > h3 {
+.svc__toggle:hover .svc__title,
+.svc__toggle:focus-visible .svc__title {
   color: var(--acc);
 }
 
-.svc h3 em {
+.svc__title em {
   font-family: var(--font-accent);
   font-style: var(--accent-style);
   font-weight: 400;
@@ -52,13 +70,13 @@
     color 0.3s;
 }
 
-.svc:hover .plus {
+.svc__toggle:hover .plus,
+.svc__toggle:focus-visible .plus {
   transform: rotate(90deg);
   color: var(--acc);
 }
 
 .svc .detail {
-  grid-column: 2 / 3;
   max-height: 0;
   overflow: hidden;
   transition:
@@ -66,6 +84,8 @@
     margin 0.5s,
     opacity 0.5s;
   opacity: 0;
+  margin-left: calc(70px + 30px);
+  margin-right: calc(30px + 1em);
 }
 
 .svc.open .detail {
@@ -79,6 +99,7 @@
 }
 
 .svc .detail p {
+  margin: 0;
   color: var(--dim);
   font-size: 18px;
   line-height: 1.6;

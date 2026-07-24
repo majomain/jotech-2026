@@ -1,20 +1,44 @@
 import { hero as heroData } from '../data/hero.js';
 import { heroPreview } from '../data/heroPreview.js';
+import { escapeHtml } from '../utils/html.js';
 
-function renderSlide(tile) {
+/** First N image tiles are above-fold LCP candidates — load eagerly. */
+const EAGER_IMAGE_COUNT = 3;
+
+function renderSlide(tile, { inert = false, imageIndex = -1 } = {}) {
   const { width, height } = tile;
   const arStyle = `--tile-ar: ${width} / ${height}`;
 
-  const media =
-    tile.type === 'video'
-      ? `<video class="hero-carousel__media" src="${tile.src}" width="${width}" height="${height}" autoplay muted loop playsinline aria-label="${tile.alt}"></video>`
-      : `<img class="hero-carousel__media" src="${tile.src}" alt="${tile.alt}" width="${width}" height="${height}" loading="lazy" decoding="async" draggable="false">`;
+  let media;
+  if (tile.type === 'video') {
+    // Duplicate (inert) group: defer src until near viewport to avoid 2× decode/bandwidth.
+    if (inert) {
+      media = `<video class="hero-carousel__media" data-src="${tile.src}" width="${width}" height="${height}" muted loop playsinline preload="none" aria-hidden="true"></video>`;
+    } else {
+      media = `<video class="hero-carousel__media" src="${tile.src}" width="${width}" height="${height}" muted loop playsinline preload="metadata" aria-label="${escapeHtml(tile.alt)}"></video>`;
+    }
+  } else {
+    const eager = !inert && imageIndex >= 0 && imageIndex < EAGER_IMAGE_COUNT;
+    const loading = eager ? 'eager' : 'lazy';
+    const priority = eager && imageIndex === 0 ? ' fetchpriority="high"' : '';
+    media = `<img class="hero-carousel__media" src="${tile.src}" alt="${escapeHtml(tile.alt)}" width="${width}" height="${height}" loading="${loading}" decoding="async"${priority} draggable="false">`;
+  }
+
+  if (tile.href && !inert) {
+    return `<a class="hero-carousel__slide hero-carousel__slide--link" href="${escapeHtml(tile.href)}" style="${arStyle}">${media}</a>`;
+  }
 
   return `<figure class="hero-carousel__slide" style="${arStyle}">${media}</figure>`;
 }
 
-function renderCarouselGroup() {
-  return heroPreview.tiles.map(renderSlide).join('\n        ');
+function renderCarouselGroup({ inert = false } = {}) {
+  let imageIndex = 0;
+  return heroPreview.tiles
+    .map((tile) => {
+      const idx = tile.type === 'image' ? imageIndex++ : -1;
+      return renderSlide(tile, { inert, imageIndex: idx });
+    })
+    .join('\n        ');
 }
 
 function renderHeroHeadline() {
@@ -46,21 +70,15 @@ function renderHeroHeadline() {
 export function renderHeroStage() {
   return [
     '<div class="hero-stage">',
-    '  <canvas class="hero-grain" aria-hidden="true"></canvas>',
-    '  <div class="hero-grain-scrim" aria-hidden="true"></div>',
     renderHeroHeadline(),
     renderHeroCollection(),
     '</div>',
   ].join('\n');
 }
 
-/** @deprecated Use renderHeroStage — kept for tests or partial renders */
-export function renderHero() {
-  return renderHeroHeadline();
-}
-
 export function renderHeroCollection() {
   const group = renderCarouselGroup();
+  const duplicateGroup = renderCarouselGroup({ inert: true });
 
   return [
     '<section class="hero-collection" aria-label="Portfolio preview">',
@@ -70,7 +88,7 @@ export function renderHeroCollection() {
     `        ${group}`,
     '      </div>',
     '      <div class="hero-carousel__group" aria-hidden="true">',
-    `        ${group}`,
+    `        ${duplicateGroup}`,
     '      </div>',
     '    </div>',
     '  </div>',

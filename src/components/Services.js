@@ -4,13 +4,18 @@ import { shopifyPartner } from '../data/shopify.js';
 function renderService(service, index) {
   const shopifyBlock = service.shopifyPartner ? `\n    ${renderShopifyPartner()}` : '';
   const delay = 80 + index * 60;
+  const panelId = `svc-panel-${index}`;
+  const buttonId = `svc-btn-${index}`;
+  const isOpen = Boolean(service.open);
 
   return [
-    `<div class="svc${service.open ? ' open' : ''} reveal" style="--reveal-delay: ${delay}ms">`,
-    `  <div class="num">${service.num}</div>`,
-    `  <h3>${service.title}</h3>`,
-    '  <span class="plus">+</span>',
-    '  <div class="detail">',
+    `<div class="svc${isOpen ? ' open' : ''} reveal" style="--reveal-delay: ${delay}ms">`,
+    `  <button type="button" class="svc__toggle" id="${buttonId}" aria-expanded="${isOpen}" aria-controls="${panelId}">`,
+    `    <span class="num">${service.num}</span>`,
+    `    <span class="svc__title">${service.title}</span>`,
+    '    <span class="plus" aria-hidden="true">+</span>',
+    '  </button>',
+    `  <div class="detail" id="${panelId}" role="region" aria-labelledby="${buttonId}">`,
     `    <p>${service.description}</p>${shopifyBlock}`,
     '  </div>',
     '</div>',

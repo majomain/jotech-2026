@@ -19,50 +19,6 @@
   background: var(--bg);
 }
 
-.hero-grain {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  display: block;
-}
-
-.hero-grain-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--bg) 18%, transparent) 0%,
-    color-mix(in srgb, var(--bg) 62%, transparent) 48%,
-    color-mix(in srgb, var(--bg) 88%, transparent) 100%
-  );
-}
-
-[data-theme='light'] .hero-grain-scrim {
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--bg) 42%, transparent) 0%,
-    color-mix(in srgb, var(--bg) 82%, transparent) 100%
-  );
-}
-
-.hero-stage.hero-grain--fallback {
-  background:
-    radial-gradient(ellipse 80% 60% at 85% 35%, color-mix(in srgb, var(--acc2) 14%, transparent), transparent 70%),
-    radial-gradient(ellipse 70% 55% at 15% 75%, color-mix(in srgb, var(--acc) 10%, transparent), transparent 68%),
-    var(--bg);
-}
-
-.hero-stage > .hero,
-.hero-stage > .hero-collection {
-  position: relative;
-  z-index: 2;
-}
-
 .hero {
   display: flex;
   flex-direction: column;
@@ -194,6 +150,17 @@
   border: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
   background: color-mix(in srgb, var(--bg) 88%, var(--bg2));
   opacity: 0.9;
+}
+
+a.hero-carousel__slide--link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.hero-carousel__slide--link:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
 }
 
 .hero-carousel__media {

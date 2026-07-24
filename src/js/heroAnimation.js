@@ -153,13 +153,3 @@ export function initHeroAnimation(root = document) {
   animateClipRevealLines(root, '.hero h1 .ln em');
   initHeroSubtextTypewriter(root);
 }
-
-/**
- * Load-time line reveal for case study page titles.
- */
-export function initCaseHeaderAnimation(root = document) {
-  animateClipRevealLines(root, '.case-header h1 .ln em', {
-    delayBase: 220,
-    stagger: 90,
-  });
-}

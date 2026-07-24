@@ -26,13 +26,14 @@
     width: 100%;
   }
 
-  .svc {
+  .svc__toggle {
     grid-template-columns: 40px 1fr auto;
     gap: 16px;
   }
 
   .svc .detail {
-    grid-column: 1 / 4;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .shopify-partner {
@@ -63,11 +64,12 @@
     padding: 32px 0;
   }
 
-  .svc:hover {
+  .svc__toggle:hover,
+  .svc__toggle:focus-visible {
     padding-left: 0;
   }
 
-  .svc h3 {
+  .svc__title {
     font-size: clamp(24px, 6vw, 40px);
   }
 
