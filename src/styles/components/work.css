@@ -53,6 +53,7 @@
   overflow: hidden;
   position: relative;
   border: 1px solid var(--line);
+  --wcard-hover-duration: 0.55s;
 }
 
 .wcard .bg {
@@ -61,24 +62,32 @@
   background: var(--work-card-bg);
 }
 
-/* Soft teal/gold bloom — intensifies the existing fill without scaling */
+/* Theme-tuned teal/gold bloom — lifts dark fills, deepens light fills */
 .wcard .bg::before {
   content: '';
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.55s ease;
+  mix-blend-mode: var(--wcard-hover-blend);
+  transition: opacity var(--wcard-hover-duration) ease;
   background:
     radial-gradient(
-      ellipse 150% 130% at 14% 16%,
-      color-mix(in srgb, var(--wcard-teal) 72%, transparent) 0%,
-      transparent 62%
+      ellipse 170% 150% at 10% 12%,
+      color-mix(in srgb, var(--wcard-hover-teal) 92%, transparent) 0%,
+      color-mix(in srgb, var(--wcard-hover-teal) 38%, transparent) 40%,
+      transparent 70%
     ),
     radial-gradient(
-      ellipse 140% 120% at 86% 84%,
-      color-mix(in srgb, var(--wcard-gold) 58%, transparent) 0%,
-      transparent 58%
+      ellipse 160% 140% at 90% 88%,
+      color-mix(in srgb, var(--wcard-hover-gold) 90%, transparent) 0%,
+      color-mix(in srgb, var(--wcard-hover-gold) 36%, transparent) 38%,
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 120% 100% at 50% 55%,
+      color-mix(in srgb, var(--wcard-hover-mid) 50%, transparent) 0%,
+      transparent 72%
     );
 }
 
@@ -94,7 +103,16 @@
 }
 
 .wcard:hover .bg::before {
-  opacity: 1;
+  opacity: var(--wcard-hover-opacity);
+}
+
+/* Light mode: ease the bottom cream scrim so the gold bloom stays visible */
+[data-theme='light'] .wcard .ov {
+  transition: opacity var(--wcard-hover-duration) ease;
+}
+
+[data-theme='light'] .wcard:hover .ov {
+  opacity: 0.82;
 }
 
 .wcard .ov {
@@ -168,13 +186,13 @@
   color: var(--wcard-fg);
 }
 
-/* Light mode: soft halo keeps dark titles readable over 3D icons */
+/* Light mode: compact halo keeps dark titles readable over 3D icons */
 [data-theme='light'] .wcard h3 {
   text-shadow:
-    0 0 10px var(--bg),
-    0 0 22px var(--bg),
-    0 0 36px var(--wcard-base),
-    0 1px 2px rgba(247, 245, 240, 0.9);
+    0 0 3px rgba(247, 245, 240, 0.55),
+    0 0 7px rgba(247, 245, 240, 0.4),
+    0 0 12px rgba(240, 236, 228, 0.28),
+    0 1px 1px rgba(247, 245, 240, 0.45);
 }
 
 .wcard p {
@@ -227,7 +245,9 @@ button.wcard:focus-visible {
   text-transform: uppercase;
   color: var(--wcard-fg);
   opacity: 0.75;
-  transition: opacity 0.3s;
+  transition:
+    color var(--wcard-hover-duration) ease,
+    opacity var(--wcard-hover-duration) ease;
 }
 
 .wcard:hover .wcard-link {

@@ -1,7 +1,7 @@
 export const workItems = [
   {
     kicker: 'Brand + Web',
-    title: 'brand design and launch',
+    title: 'Brand design and launch',
     description: 'Identity system, narrative framework, and a launch experience that converts.',
     icon: 'https://assets.jotech.co/cursor-webstore-edit.png',
     href: '/work/arkim',

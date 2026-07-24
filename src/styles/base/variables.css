@@ -45,6 +45,12 @@
   --wcard-mid: #5a8078;
   --wcard-gold: #c99300;
   --wcard-base: #f0ece4;
+  /* Hover wash: deepen/saturate (multiply) so the lift reads on pale fills */
+  --wcard-hover-blend: multiply;
+  --wcard-hover-opacity: 0.72;
+  --wcard-hover-teal: #2f6f68;
+  --wcard-hover-gold: #a87800;
+  --wcard-hover-mid: #3d5c56;
   --work-card-bg:
     radial-gradient(
       ellipse 180% 160% at 8% 12%,
@@ -96,6 +102,12 @@
   --wcard-mid: #1f3530;
   --wcard-gold: #ffd24a;
   --wcard-base: #0c0c10;
+  /* Hover wash: brighten/lift on dark fills */
+  --wcard-hover-blend: soft-light;
+  --wcard-hover-opacity: 1;
+  --wcard-hover-teal: #3da89e;
+  --wcard-hover-gold: #ffd24a;
+  --wcard-hover-mid: #2a4a42;
   --work-card-bg:
     radial-gradient(
       ellipse 180% 160% at 8% 12%,
