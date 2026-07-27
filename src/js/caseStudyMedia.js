@@ -1,5 +1,5 @@
 /**
- * Autoplay gallery videos when visible; keep looping GIFs running after scroll.
+ * Autoplay case-study videos when visible; keep looping GIFs running after scroll.
  */
 export function initCaseStudyMedia(root = document) {
   const videos = root.querySelectorAll('.case-figure__video');
