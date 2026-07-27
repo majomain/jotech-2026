@@ -19,6 +19,7 @@ export const caseStudies = [
     service: 'Strategy, Identity, Web Design & Development',
     year: '2025',
     industry: 'Industrial AI',
+    ogImage: 'https://assets.jotech.co/port-arkim-ai-home.png',
     leadVisual: {
       type: 'video',
       src: 'https://assets.jotech.co/port-arkim-intro-reel.mp4',

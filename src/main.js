@@ -2,7 +2,7 @@ import './styles/main.css';
 import { renderApp } from './app.js';
 import { renderCaseStudyPage } from './components/CaseStudy.js';
 import { getCaseStudyByPath } from './data/caseStudies.js';
-import { setCaseStudyMeta } from './utils/meta.js';
+import { setCaseStudyMeta, setHomeMeta } from './utils/meta.js';
 import { initTheme } from './js/theme.js';
 import { initNavMenu } from './js/navMenu.js';
 import { initNavScroll } from './js/navScroll.js';
@@ -32,6 +32,7 @@ if (app && caseStudy) {
   initScrollEffects(document);
   initScrollReveal(document);
 } else if (app) {
+  setHomeMeta();
   app.innerHTML = renderApp();
 
   initTheme(document);

@@ -1,4 +1,8 @@
+import { homeShareMeta, getCaseStudyShareMeta } from '../data/shareMeta.js';
+
 function upsertMeta({ property, name, content }) {
+  if (content == null || content === '') return;
+
   const selector = property
     ? `meta[property="${property}"]`
     : `meta[name="${name}"]`;
@@ -20,23 +24,40 @@ function absoluteUrl(src) {
   return new URL(src, window.location.origin).href;
 }
 
+function applyShareMeta(meta) {
+  document.title = meta.title;
+  upsertMeta({ name: 'description', content: meta.description });
+  upsertMeta({ property: 'og:type', content: meta.type });
+  upsertMeta({ property: 'og:title', content: meta.title });
+  upsertMeta({ property: 'og:description', content: meta.description });
+  upsertMeta({ property: 'og:url', content: meta.url });
+  upsertMeta({ property: 'og:image', content: meta.image });
+  if (meta.imageWidth) upsertMeta({ property: 'og:image:width', content: meta.imageWidth });
+  if (meta.imageHeight) upsertMeta({ property: 'og:image:height', content: meta.imageHeight });
+  upsertMeta({ name: 'twitter:card', content: 'summary_large_image' });
+  upsertMeta({ name: 'twitter:title', content: meta.title });
+  upsertMeta({ name: 'twitter:description', content: meta.description });
+  upsertMeta({ name: 'twitter:image', content: meta.image });
+}
+
 /**
  * Sets document title and social meta tags for a case study page.
  */
 export function setCaseStudyMeta(study) {
-  const description = study.metaDescription;
-  const pageUrl = new URL(study.path, window.location.origin).href;
-  const imageUrl = absoluteUrl(study.ogImage ?? study.cover?.src);
+  const meta = getCaseStudyShareMeta(study);
+  // Prefer same-origin absolute URLs when running in the browser.
+  meta.url = absoluteUrl(study.path);
+  if (study.ogImage || study.cover?.src) {
+    meta.image = absoluteUrl(study.ogImage ?? study.cover?.src);
+  } else {
+    meta.image = homeShareMeta.image;
+  }
+  applyShareMeta(meta);
+}
 
-  document.title = study.documentTitle;
-  upsertMeta({ name: 'description', content: description });
-  upsertMeta({ property: 'og:type', content: 'article' });
-  upsertMeta({ property: 'og:title', content: study.documentTitle });
-  upsertMeta({ property: 'og:description', content: description });
-  upsertMeta({ property: 'og:url', content: pageUrl });
-  if (imageUrl) upsertMeta({ property: 'og:image', content: imageUrl });
-  upsertMeta({ name: 'twitter:card', content: 'summary_large_image' });
-  upsertMeta({ name: 'twitter:title', content: study.documentTitle });
-  upsertMeta({ name: 'twitter:description', content: description });
-  if (imageUrl) upsertMeta({ name: 'twitter:image', content: imageUrl });
+export function setHomeMeta() {
+  applyShareMeta({
+    ...homeShareMeta,
+    url: absoluteUrl('/'),
+  });
 }
