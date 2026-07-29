@@ -24,8 +24,11 @@ function renderSlide(tile, { inert = false, imageIndex = -1 } = {}) {
     media = `<img class="hero-carousel__media" src="${tile.src}" alt="${escapeHtml(tile.alt)}" width="${width}" height="${height}" loading="${loading}" decoding="async"${priority} draggable="false">`;
   }
 
-  if (tile.href && !inert) {
-    return `<a class="hero-carousel__slide hero-carousel__slide--link" href="${escapeHtml(tile.href)}" style="${arStyle}">${media}</a>`;
+  // Keep hrefs on the duplicated loop group too — otherwise tiles near the
+  // seam (second half of the infinite scroll) are not clickable.
+  if (tile.href) {
+    const inertAttrs = inert ? ' tabindex="-1" aria-hidden="true"' : '';
+    return `<a class="hero-carousel__slide hero-carousel__slide--link" href="${escapeHtml(tile.href)}" style="${arStyle}"${inertAttrs}>${media}</a>`;
   }
 
   return `<figure class="hero-carousel__slide" style="${arStyle}">${media}</figure>`;
